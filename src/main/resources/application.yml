@@ -3,6 +3,13 @@ server:
   port: 8080
 
 spring:
+    thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      mode: HTML5
+      encoding: UTF-8
+      content-type: text/html
+      cache: false
     datasource:
         name: test
         url: jdbc:mysql://120.78.67.76:3306/test

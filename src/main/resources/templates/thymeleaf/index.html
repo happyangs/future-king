@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
-    <script type="text/javascript" src="js/common/jquery.js"></script>
-    <link rel="stylesheet" href="css/common/bootstrap.min.css">
-    <script type="text/javascript" src="js/common/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/common/jquery.fullPage.min.js"></script>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/toPage.css">
-    <script type="text/javascript" src="js/index.js"></script>
+    <title>主页</title>
+
+    <script th:src="@{js/common/jquery.js}"></script>
+    <script th:src="@{js/common/bootstrap.min.js}"></script>
+    <script th:src="@{js/common/jquery.fullPage.min.js}"></script>
+    <script th:src="@{js/index.js}"></script>
     <!--先引入jquery-->
-    <script src="js/common/jquery-3.2.1.min.js"></script>
+    <script th:src="@{js/common/jquery-3.2.1.min.js}"></script>
     <!--再引入toPage.js-->
-    <script src="js/toPage.js"></script>
+    <script th:src="@{js/toPage.js}"></script>
+
+    <link rel="stylesheet" th:href="@{css/index.css}" />
+    <link rel="stylesheet" th:href="@{css/toPage.css}" />
+    <link rel="stylesheet" th:href="@{css/common/bootstrap.min.css}" />
 </head>
 <body>
     <div class="container con">
@@ -24,9 +27,11 @@
             <div class="col-md-8">
                 <div class="form-group">
                     <input type="text" class="form-control sousuo" placeholder="耐克阿迪只要199">
-                    <button type="submit" class="btn btn-default suobtn"><img src="images/fangda.png" alt=""></button>
+                    <button type="submit" class="btn btn-default suobtn">
+                        <img class="img-responsive" alt="" th:src="@{/images/fangda.png}" />
+                    </button>
                      <ul class="ul-ul">
-                    <li><a>小米</a></li>
+                    <li><a>小米1</a></li>
                     <li><a>iphone</a></li>
                     <li><a>安慕希</a></li>
                     <li><a>拖把</a></li>
@@ -45,10 +50,14 @@
 <div id="xy" idx="xy" class="container confour aboo">
         <div class="row">
             <div class="col-md-2 col-md-offset-1 0">
-                 <div class="top"><div class="img-img"><img src="images/i1.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
+                 <div class="top">
+                     <div class="img-img"> <img class="img-responsive" alt="" th:src="@{/images/i1.jpg}" width="100%" height="100%"/></div>
+                     <div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div>
+                 </div>
                  <div class="bottom"><div class="img-img"><img src="images/i2.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
             </div>
-            <div class="col-md-2 col-md2">
+
+          <!--  <div class="col-md-2 col-md2">
                 <div class="top"><div class="img-img"><img src="images/i3.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
                  <div class="bottom"><div class="img-img"><img src="images/i4.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
             </div>
@@ -63,13 +72,16 @@
             <div class="col-md-2 col-md22">
                 <div class="top"><div class="img-img"><img src="images/i9.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
                  <div class="bottom"><div class="img-img"><img src="images/i10.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-            </div>
+            </div>-->
         </div>
 </div>
 
     <!-- 定位广告 -->
     <div class="cebian">
-        <div class="cebianone xy"><span><a href="#xy">懂你想要</a></span><img src="images/weixiao.png" alt=""></div>
+        <div class="cebianone xy">
+            <span><a href="#xy">懂你想要</a></span>
+            <img class="img-responsive" alt="" th:src="@{/images/weixiao.png}" />
+        </div>
     </div>
 
     <div class="page_2"></div>
