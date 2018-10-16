@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
     $(".shangping-fix").hide();
     var $abogao=$(".aboo").offset().top;
     $(window).scroll(function(event) {
-var $scrl=$(window).scrollTop();
+        var $scrl=$(window).scrollTop();
         if($scrl>$abogao){
 
             $(".shangping-fix").slideDown(500);

@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <title>Document</title>
-    <script type="text/javascript" src="jquery.js"></script>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script type="text/javascript" src="bootstrap.min.js"></script>
-    <script type="text/javascript" src="jquery.fullPage.min.js"></script>
-    <script type="text/javascript" src="docs.min.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="js/common/jquery.js"></script>
+    <link rel="stylesheet" href="css/common/bootstrap.min.css">
+    <script type="text/javascript" src="js/common/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/common/jquery.fullPage.min.js"></script>
+    <script type="text/javascript" src="js/common/docs.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/toPage.css">
+    <script type="text/javascript" src="js/index.js"></script>
+    <!--先引入jquery-->
+    <script src="js/common/jquery.min.js"></script>
+    <!--再引入toPage.js-->
+    <script src="js/toPage.js"></script>
 </head>
 <body>
     <div class="container con">
@@ -38,7 +43,7 @@
         </div>
     </div>
 
-<div id="xy" idx="xy" class="container confour">
+<div id="xy" idx="xy" class="container confour aboo">
         <div class="row">
             <div class="col-md-2 col-md-offset-1 0">
                  <div class="top"><div class="img-img"><img src="images/i1.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
@@ -67,5 +72,20 @@
     <div class="cebian">
         <div class="cebianone xy"><span><a href="#xy">懂你想要</a></span><img src="images/weixiao.png" alt=""></div>
     </div>
+
+    <div class="page_2"></div>
 </body>
+
+<script>
+    /*容器2参数*/
+    var obj_2={
+        obj_box:'.page_2',//翻页容器
+        total_item:372,//条目总数
+        per_num:20,//每页条目数
+        current_page:8//当前页
+    };
+    /*调用分页方法,初始化数据*/
+    page_ctrl(obj_2);
+</script>
 </html>
+
