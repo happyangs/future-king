@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>主页</title>
 
     <script th:src="@{js/common/jquery.js}"></script>
@@ -14,23 +14,25 @@
     <!--再引入toPage.js-->
     <script th:src="@{js/toPage.js}"></script>
 
-    <link rel="stylesheet" th:href="@{css/index.css}" />
-    <link rel="stylesheet" th:href="@{css/toPage.css}" />
-    <link rel="stylesheet" th:href="@{css/common/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/common/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/index.css}"/>
+    <link rel="stylesheet" th:href="@{css/toPage.css}"/>
+
+
 </head>
 <body>
-    <div class="container con">
-        <div class="row">
-            <div class="col-md-2 logge">
+<div class="container con">
+    <div class="row">
+        <div class="col-md-2 logge">
 
-            </div>
-            <div class="col-md-8">
-                <div class="form-group">
-                    <input type="text" class="form-control sousuo" placeholder="耐克阿迪只要199">
-                    <button type="submit" class="btn btn-default suobtn">
-                        <img class="img-responsive" alt="" th:src="@{/images/fangda.png}" />
-                    </button>
-                     <ul class="ul-ul">
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <input type="text" class="form-control sousuo" placeholder="耐克阿迪只要199"/>
+                <button type="submit" class="btn btn-default suobtn">
+                    <img class="img-responsive" alt="" th:src="@{/images/fangda.png}"/>
+                </button>
+                <ul class="ul-ul">
                     <li><a>小米1</a></li>
                     <li><a>iphone</a></li>
                     <li><a>安慕希</a></li>
@@ -39,61 +41,124 @@
                     <li><a>饮用水</a></li>
                 </ul>
 
-                </div>
             </div>
-            <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
 
-            </div>
         </div>
     </div>
-
-<div id="xy" idx="xy" class="container confour aboo">
-        <div class="row">
-            <div class="col-md-2 col-md-offset-1 0">
-                 <div class="top">
-                     <div class="img-img"> <img class="img-responsive" alt="" th:src="@{/images/i1.jpg}" width="100%" height="100%"/></div>
-                     <div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div>
-                 </div>
-                 <div class="bottom"><div class="img-img"><img src="images/i2.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-            </div>
-
-          <!--  <div class="col-md-2 col-md2">
-                <div class="top"><div class="img-img"><img src="images/i3.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-                 <div class="bottom"><div class="img-img"><img src="images/i4.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-            </div>
-            <div class="col-md-2 col-md22">
-                <div class="top"><div class="img-img"><img src="images/i5.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-                 <div class="bottom"><div class="img-img"><img src="images/i6.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-            </div>
-            <div class="col-md-2 col-md22 liwai">
-                <div class="top"><div class="img-img"><img src="images/i7.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-                 <div class="bottom"><div class="img-img"><img src="images/i8.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-            </div>
-            <div class="col-md-2 col-md22">
-                <div class="top"><div class="img-img"><img src="images/i9.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-                 <div class="bottom"><div class="img-img"><img src="images/i10.jpg" alt="" width="100%" height="100%"></div><div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div><div class="price-goumai"><span>￥50.50</span><p><button>购买</button></div></div>
-            </div>-->
-        </div>
 </div>
 
-    <!-- 定位广告 -->
-    <div class="cebian">
-        <div class="cebianone xy">
-            <span><a href="#xy">懂你想要</a></span>
-            <img class="img-responsive" alt="" th:src="@{/images/weixiao.png}" />
+<div id="xy" idx="xy" class="container confour aboo">
+    <div class="row">
+        <div class="col-md-2 col-md22" style="margin-left: 100px;">
+            <div class="top">
+                <div class="img-img">
+                    <img class="img-responsive" alt="" th:src="@{/images/i1.jpg}" width="100%" height="100%"/>
+                </div>
+                <div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="img-img"><img class="img-responsive" src="images/i2.jpg" alt="" width="100%" height="100%"/></div>
+                <div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div>
+                <div class="price-goumai">
+                    <span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-md22">
+            <div class="top">
+                <div class="img-img">
+                    <img class="img-responsive" th:src="@{/images/i3.jpg}" alt="" width="100%" height="100%"/>
+                </div>
+                <div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div>
+                <div class="price-goumai">
+                    <span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="img-img"><img class="img-responsive" th:src="@{/images/i4.jpg}" alt="" width="100%" height="100%" /></div>
+                <div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-md22">
+            <div class="top">
+                <div class="img-img"><img class="img-responsive" th:src="@{/images/i5.jpg}" alt="" width="100%" height="100%" /></div>
+                <div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="img-img"><img class="img-responsive" th:src="@{/images/i6.jpg}" alt="" width="100%" height="100%" /></div>
+                <div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-md22">
+            <div class="top">
+                <div class="img-img"><img class="img-responsive" th:src="@{/images/i7.jpg}" alt="" width="100%" height="100%" /></div>
+                <div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="img-img"><img class="img-responsive" th:src="@{/images/i8.jpg}" alt="" width="100%" height="100%" /></div>
+                <div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-md22">
+            <div class="top">
+                <div class="img-img"><img class="img-responsive" th:src="@{/images/i9.jpg}" alt="" width="100%" height="100%" /></div>
+                <div class="img-wenzi"><span>赠品试吃装20g科德拉客山羊奶粉成人样</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="img-img"><img class="img-responsive" th:src="@{/images/i10.jpg}" alt="" width="100%" height="100%" /></div>
+                <div class="img-wenzi"><span>加斯成人维生素C软糖120粒C软糖儿</span></div>
+                <div class="price-goumai"><span>￥50.50</span>
+                    <button>购买</button>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    <div class="page_2"></div>
+<!-- 定位广告 -->
+<div class="cebian">
+    <div class="cebianone xy">
+        <span><a href="#xy">懂你想要</a></span>
+        <img class="img-responsive" alt="" th:src="@{/images/weixiao.png}"/>
+    </div>
+</div>
+
+<div class="page_2"></div>
 </body>
 
 <script>
     /*容器2参数*/
-    var obj_2={
-        obj_box:'.page_2',//翻页容器
-        total_item:372,//条目总数
-        per_num:20,//每页条目数
-        current_page:8//当前页
+    var obj_2 = {
+        obj_box: '.page_2',//翻页容器
+        total_item: 372,//条目总数
+        per_num: 20,//每页条目数
+        current_page: 8//当前页
     };
     /*调用分页方法,初始化数据*/
     page_ctrl(obj_2);
