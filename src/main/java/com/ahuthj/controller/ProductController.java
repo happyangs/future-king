@@ -1,8 +1,5 @@
 package com.ahuthj.controller;
 
-import com.ahuthj.model.Product;
-import com.ahuthj.model.ProductKey;
-import com.ahuthj.service.ProductService;
 import com.ahuthj.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,32 +23,17 @@ public class ProductController {
     @Value("${com.email}")
     private String email;
 
-    @Autowired
-    private ProductService userService;
 
     @ResponseBody
     @RequestMapping(value = "/all/{pageNum}/{pageSize}", produces = {"application/json;charset=UTF-8"})
     public Object findAllUser(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize){
-
-
-
-        return userService.findAllProduct(pageNum,pageSize);
+        return null;
     }
 
     @ResponseBody
     @RequestMapping(value = "/select", produces = {"application/json;charset=UTF-8"})
     public Object select(){
-        ProductKey key = new ProductKey();
-
-
-        key.setId(9);
-        key.setProductId(1003);
-        logger.info(userService.selectByPrimaryKey(key).toString());
-        Product p = userService.selectByPrimaryKey(key);
-
-        String str = JsonUtil.obj2StringPretty(p);
-        String str1 = JsonUtil.obj2String(p);
         logger.info(email);
-        return str;
+        return null;
     }
 }
