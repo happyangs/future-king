@@ -14,7 +14,7 @@ public class BkProduct implements Serializable {
     /**
      * 商品编码
      */
-    private Byte productId;
+    private Integer productId;
 
     /**
      * 商品名称
@@ -54,7 +54,7 @@ public class BkProduct implements Serializable {
     /**
      * 删除标记
      */
-    private Byte isDelete;
+    private Integer isDelete;
 
     private static final long serialVersionUID = 1L;
 
@@ -66,11 +66,11 @@ public class BkProduct implements Serializable {
         this.id = id;
     }
 
-    public Byte getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(Byte productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
@@ -130,11 +130,11 @@ public class BkProduct implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Byte getIsDelete() {
+    public Integer getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
     }
 
