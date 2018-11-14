@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by Byant on 2018-05-06.
  */
-@Controller
+@RestController
 @RequestMapping(value = "product")
 public class ProductController {
 
@@ -40,8 +40,8 @@ public class ProductController {
 
     @ResponseBody
     @RequestMapping(value = "/queryByCondition", produces = {"application/json;charset=UTF-8"} ,method = RequestMethod.POST)
-    public Response queryProduct(ProductQueryVo productQueryVo){
-        Result<Object> result = new Result<>();
-        return Response.buildSuccessResponseWithResult(productQueryVo, result.getMeta());
+    public Response queryProduct( ProductQueryVo productQueryVo){
+        logger.info(JsonUtil.obj2String(productQueryVo));
+        return Response.buildSuccessResponse();
     }
 }

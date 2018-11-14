@@ -42,10 +42,4 @@ public class IndexController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/product/queryByCondition",method = RequestMethod.POST)
-    public String queryProduct(@RequestBody ProductQueryVo productQueryVo){
-        logger.info(JsonUtil.obj2String(productQueryVo));
-        return "22";
-    }
-
 }

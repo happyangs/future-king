@@ -26,12 +26,12 @@ function page_ctrl(data_obj) {
       */
         $.ajax({
             type: "POST",
-            url: "/product/queryByCondition",
+            url: "product/queryByCondition",
+            dataType: "JSON",
             data:JSON.stringify({
                 'pageSize':per_num,
                 'pageNum':current_page
             }),
-            dataType: "JSON",
             success: function(data){
                 $('#J_product-item').empty();   //清空resText里面的所有内容
                 console.log(data);
