@@ -1,9 +1,3 @@
-/*
-* @Author: name
-* @Date:   2018-03-24 17:36:57
-* @Last Modified by:   name
-* @Last Modified time: 2018-03-28 21:36:39
-*/
 jQuery(document).ready(function($) {
 
     // $(".daohang li").eq(0).addClass('active');

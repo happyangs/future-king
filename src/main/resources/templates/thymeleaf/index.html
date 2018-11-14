@@ -44,6 +44,7 @@
             margin: 0 10px 10px 0;
             overflow: hidden;
             background-color: #fff;
+
         }
         .product-item img{
             width: 210px;
@@ -53,10 +54,22 @@
         .product-desc{
             text-align: center;
         }
+        .product-title{
+            font-size: 14px;
+            color: #011b27;
+            width: 180px;
+            line-height: 14px;
+            margin: 0 auto;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration : none;
+        }
         .product-price{
             line-height: 16px;
             margin-top: 10px;
             display: block;
+            text-decoration : none;
         }
         .product-price span{
             font-size: 16px;
@@ -100,15 +113,15 @@
             <div class="product-list-content">
                 <div class="product-list m-content clearfix">
                     <ul class="product-ul">
-                        <div class="product-item" th:each="product : ${bkProductList}" target="_blank">
+                        <a class="product-item J_product-item" th:each="product : ${bkProductList}" th:href="@{'product/detail/'+${product.productId}}" target="_blank">
                             <img th:src="@{${product.picturePath}}"/>
                             <div class="product-desc">
-                                <div class="product-title">毛绒小牛玩偶20CM</div>
+                                <div class="product-title" th:text="${product.productName}"></div>
                                 <div class="product-price" style="display: block;">
-                                    <span>¥29</span>
+                                    <span th:text="${product.price}"></span>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </ul>
                 </div>
             </div>
@@ -116,26 +129,32 @@
         </div>
     </div>
 </div>
-
-<!-- 定位广告 -->
-<div class="cebian">
-    <div class="cebianone xy">
-        <span><a href="#xy">懂你想要</a></span>
-        <img class="img-responsive" alt="" th:src="@{/images/weixiao.png}"/>
-    </div>
-</div>
-
 <div class="page_2"></div>
-
 </body>
 
+<script type="text/javascript" th:inline="javascript">
+    ajaxSubmit();
+    function ajaxSubmit(){
+        var songName = $("#songName").val();
+        var singer = $("#singer").val();
+    }
+
+
+
+</script>
+
+<script th:inline="javascript">
+    /* 页面取值*/
+    var totalCount = [[${totalCount}]];
+</script>
 <script>
+
     /*容器2参数*/
     var obj_2 = {
         obj_box: '.page_2',//翻页容器
-        total_item: 372,//条目总数
+        total_item: totalCount,//条目总数
         per_num: 20,//每页条目数
-        current_page: 8//当前页
+        current_page: 1//当前页
     };
     /*调用分页方法,初始化数据*/
     page_ctrl(obj_2);

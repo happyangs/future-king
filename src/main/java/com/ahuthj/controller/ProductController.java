@@ -1,14 +1,15 @@
 package com.ahuthj.controller;
 
+import cn.dotfashion.soa.api.vo.Response;
+import cn.dotfashion.soa.api.vo.Result;
+import com.ahuthj.model.request.ProductQueryVo;
 import com.ahuthj.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -35,5 +36,12 @@ public class ProductController {
     public Object select(){
         logger.info(email);
         return null;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/queryByCondition", produces = {"application/json;charset=UTF-8"} ,method = RequestMethod.POST)
+    public Response queryProduct(ProductQueryVo productQueryVo){
+        Result<Object> result = new Result<>();
+        return Response.buildSuccessResponseWithResult(productQueryVo, result.getMeta());
     }
 }

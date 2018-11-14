@@ -10,21 +10,43 @@ function page_ctrl(data_obj) {
     return;
   }
   //在指定容器内加载分页数据
-  $(obj_box).append('<div class="page_content"></div>');
+  //$(obj_box).append('<div class="page_content"></div>');
   //在指定容器内加载分页插件
   $(obj_box).append('<div class="page_ctrl"></div>');
   function page_even() {
     /*加载数据*/
     function change_content() {
-      /*此处根据项目实际自行编写页面显示内容的方法,举例说明:*/
+      /*此处根据项目实际自行编写页面显示内容的方法,举例说明:
       var page_content='<ul style="width: 300px;margin: 10px auto;">';//当前页内容
       for(var i=0;i<per_num;i++){
         page_content+='<li>'+((current_page-1)*per_num+i+1)+',分页条目</li>';
       }
       page_content+='</ul>';
       $(obj_box).children('.page_content').html(page_content);
+      */
+        $.ajax({
+            type: "POST",
+            url: "/product/queryByCondition",
+            data:JSON.stringify({
+                'pageSize':per_num,
+                'pageNum':current_page
+            }),
+            dataType: "JSON",
+            success: function(data){
+                $('#J_product-item').empty();   //清空resText里面的所有内容
+                console.log(data);
+                // var html = '';
+                // $.each(data, function(commentIndex, comment){
+                //     html += '<div class="comment"><h6>' + comment['username']
+                //         + ':</h6><p class="para"' + comment['content']
+                //         + '</p></div>';
+                // });
+                // $('#resText').html(html);
+            }
+        });
+      $('.J_product-item').html(11);
     }
-    // change_content();
+    change_content();
     var inp_val=(current_page==total_page)?1:current_page+1;//跳转页数,input默认显示值
     var append_html='<button class="prev_page">上一页</button>';
     for(var i=0;i<total_page-1;i++){
