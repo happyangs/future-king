@@ -38,10 +38,9 @@ public class ProductController {
         return null;
     }
 
-    @ResponseBody
     @RequestMapping(value = "/queryByCondition", produces = {"application/json;charset=UTF-8"} ,method = RequestMethod.POST)
-    public Response queryProduct( ProductQueryVo productQueryVo){
+    Response queryProduct(@RequestBody ProductQueryVo productQueryVo){
         logger.info(JsonUtil.obj2String(productQueryVo));
-        return Response.buildSuccessResponse();
+        return Response.buildSuccessResponseWithInfo(JsonUtil.obj2String(productQueryVo));
     }
 }

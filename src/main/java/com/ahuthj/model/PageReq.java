@@ -11,6 +11,7 @@ import cn.dotfashion.soa.api.vo.RequestVo;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * 分页请求

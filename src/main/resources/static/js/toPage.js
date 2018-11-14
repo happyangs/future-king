@@ -25,13 +25,14 @@ function page_ctrl(data_obj) {
       $(obj_box).children('.page_content').html(page_content);
       */
         $.ajax({
-            type: "POST",
-            url: "product/queryByCondition",
-            dataType: "JSON",
+            type: 'POST',
+            url: 'product/queryByCondition',
+            dataType: 'JSON',
             data:JSON.stringify({
-                'pageSize':per_num,
-                'pageNum':current_page
+                'page_size':per_num,
+                'page_num':current_page
             }),
+            sync: true,
             success: function(data){
                 $('#J_product-item').empty();   //清空resText里面的所有内容
                 console.log(data);
@@ -42,6 +43,12 @@ function page_ctrl(data_obj) {
                 //         + '</p></div>';
                 // });
                 // $('#resText').html(html);
+            },
+            error:function (e) {
+                //返回500错误 或者其他 http状态码错误时 需要在error 回调函数中处理了 并且返回的数据还不能直接alert，需要使用
+                //$.parseJSON 进行转译    res.msg 是自己组装的错误信息通用变量
+                var res = $.parseJSON(e.responseText);
+                console.log(res.msg);
             }
         });
       $('.J_product-item').html(11);
