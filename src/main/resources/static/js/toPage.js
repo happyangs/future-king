@@ -28,7 +28,7 @@ function page_ctrl(data_obj) {
             type: 'POST',
             url: 'product/queryByCondition',
             dataType: 'JSON',
-            data:JSON.stringify({
+            data:JSON.parse({
                 'page_size':per_num,
                 'page_num':current_page
             }),
