@@ -19,6 +19,9 @@
     <link rel="stylesheet" th:href="@{css/toPage.css}"/>
 
     <style>
+        ul{
+            width: 100%;
+        }
         ol, ul {
             list-style: none;
         }
@@ -40,11 +43,26 @@
             float: left;
             margin: 0 10px 10px 0;
             overflow: hidden;
-            background-color: #4cae4c;
+            background-color: #fff;
         }
-        .product-item .img-img{
+        .product-item img{
+            width: 210px;
+            height: 210px;
+            margin-left: 4%;
+        }
+        .product-desc{
+            text-align: center;
+        }
+        .product-price{
+            line-height: 16px;
+            margin-top: 10px;
+            display: block;
+        }
+        .product-price span{
+            font-size: 16px;
+            color: #d32833;
+        }
 
-        }
     </style>
 
 </head>
@@ -82,9 +100,15 @@
             <div class="product-list-content">
                 <div class="product-list m-content clearfix">
                     <ul class="product-ul">
-                        <a class="product-item" th:each="product : ${bkProductList}" target="_blank">
+                        <div class="product-item" th:each="product : ${bkProductList}" target="_blank">
                             <img th:src="@{${product.picturePath}}"/>
-                        </a>
+                            <div class="product-desc">
+                                <div class="product-title">毛绒小牛玩偶20CM</div>
+                                <div class="product-price" style="display: block;">
+                                    <span>¥29</span>
+                                </div>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </div>
