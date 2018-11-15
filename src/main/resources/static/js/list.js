@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
 						   
 	//mouseover效果
 	function liMouseOn(){
@@ -287,5 +287,3 @@ $(document).ready(function(){
 	btnAInit();
 	btnBInitA();
 	smallPicSelected();	
-
-});

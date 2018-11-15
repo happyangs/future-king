@@ -52,7 +52,7 @@ function page_ctrl(data_obj) {
                 console.log(res.msg);
             }
         });
-      $('.J_product-item').html(11);
+     // $('.J_product-item').html(11);
     }
     change_content();
     var inp_val=(current_page==total_page)?1:current_page+1;//跳转页数,input默认显示值
