@@ -1,17 +1,17 @@
 package com.ahuthj.controller;
 
+import com.ahuthj.common.model.Response;
 import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.request.ProductQueryVo;
 import com.ahuthj.service.BkProductService;
-import com.ahuthj.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
@@ -39,6 +39,15 @@ public class IndexController {
         modelAndView.addObject("bkProductList",bkProductList);
         modelAndView.addObject("totalCount",51);
         modelAndView.setViewName("thymeleaf/index");
+        return modelAndView;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/detail/{productId}", produces = {"application/json;charset=UTF-8"})
+    ModelAndView queryDetail(@PathVariable("productId") int productId){
+        ModelAndView modelAndView = new ModelAndView();
+       // modelAndView.addObject("productId",productId);
+        modelAndView.setViewName("thymeleaf/product_detail");
         return modelAndView;
     }
 

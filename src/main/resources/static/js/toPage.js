@@ -28,10 +28,11 @@ function page_ctrl(data_obj) {
             type: 'POST',
             url: 'product/queryByCondition',
             dataType: 'JSON',
-            data:JSON.parse({
+            data:JSON.stringify({
                 'page_size':per_num,
                 'page_num':current_page
             }),
+            contentType:"application/json;charset=utf-8",
             sync: true,
             success: function(data){
                 $('#J_product-item').empty();   //清空resText里面的所有内容

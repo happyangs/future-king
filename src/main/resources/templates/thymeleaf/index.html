@@ -113,7 +113,7 @@
             <div class="product-list-content">
                 <div class="product-list m-content clearfix">
                     <ul class="product-ul">
-                        <a class="product-item J_product-item" th:each="product : ${bkProductList}" th:href="@{'product/detail/'+${product.productId}}" target="_blank">
+                        <a class="product-item J_product-item" th:each="product : ${bkProductList}" th:href="@{'detail/'+${product.productId}}" target="_blank">
                             <img th:src="@{${product.picturePath}}"/>
                             <div class="product-desc">
                                 <div class="product-title" th:text="${product.productName}"></div>
