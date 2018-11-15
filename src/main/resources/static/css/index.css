@@ -1,14 +1,63 @@
-/*
-* @Author: name
-* @Date:   2018-03-24 17:10:39
-* @Last Modified by:   name
-* @Last Modified time: 2018-03-28 20:48:03
-*/
 body {
     font-family: "微软雅黑";
     background: #F5F5F5;
 }
+ul{
+    width: 100%;
+}
+ol, ul {
+    list-style: none;
+}
+.product-list-wrap {
+    width: 100%;
+    background-color: #f4f4f4;
+    position: relative;
+}
+.product-list-inner {
+    width: 1266px;
+    margin: 0 auto;
+}
+.product-ul{
+    width: 100%;
+}
+.product-item{
+    width: 230px;
+    height: 278px;
+    float: left;
+    margin: 0 10px 10px 0;
+    overflow: hidden;
+    background-color: #fff;
 
+}
+.product-item img{
+    width: 210px;
+    height: 210px;
+    margin-left: 4%;
+}
+.product-desc{
+    text-align: center;
+}
+.product-title{
+    font-size: 14px;
+    color: #011b27;
+    width: 180px;
+    line-height: 14px;
+    margin: 0 auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-decoration : none;
+}
+.product-price{
+    line-height: 16px;
+    margin-top: 10px;
+    display: block;
+    text-decoration : none;
+}
+.product-price span{
+    font-size: 16px;
+    color: #d32833;
+}
 .contwo {
     width: 80%;
     height: 700px;

@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>主页</title>
-
     <script th:src="@{js/common/jquery.js}"></script>
     <script th:src="@{js/common/bootstrap.min.js}"></script>
     <script th:src="@{js/common/jquery.fullPage.min.js}"></script>
     <script th:src="@{js/index.js}"></script>
-    <!--先引入jquery-->
     <script th:src="@{js/common/jquery-3.2.1.min.js}"></script>
-    <!--再引入toPage.js-->
     <script th:src="@{js/toPage.js}"></script>
 
     <link rel="stylesheet" th:href="@{css/common/bootstrap.min.css}"/>
@@ -19,78 +16,78 @@
     <link rel="stylesheet" th:href="@{css/toPage.css}"/>
 
     <style>
-        ul{
+        .header_top{
             width: 100%;
+            height: 120px;
+            background: #fff;
         }
-        ol, ul {
-            list-style: none;
-        }
-        .product-list-wrap {
-            width: 100%;
-            background-color: #f4f4f4;
+        .header_top .sub-head-inner{
+            width: 1190px;
+            margin: 0 auto;
             position: relative;
         }
-        .product-list-inner {
-            width: 1266px;
-            margin: 0 auto;
+        .sub-head-titles {
+            margin-left: 290px;
         }
-        .product-ul{
-            width: 100%;
+        .sub-head-titles ul .active li {
+            color: #d32833 !important;
+            border-bottom: 2px solid #d32833;
         }
-        .product-item{
-            width: 230px;
-            height: 278px;
+        .sub-head-titles ul a li {
             float: left;
-            margin: 0 10px 10px 0;
-            overflow: hidden;
-            background-color: #fff;
-
-        }
-        .product-item img{
-            width: 210px;
-            height: 210px;
-            margin-left: 4%;
-        }
-        .product-desc{
-            text-align: center;
-        }
-        .product-title{
             font-size: 14px;
-            color: #011b27;
-            width: 180px;
-            line-height: 14px;
-            margin: 0 auto;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            text-decoration : none;
+            color: #333;
+            margin: 36px 34px 36px 0;
+            font-family: '微软雅黑';
+            padding: 8px 0;
         }
-        .product-price{
-            line-height: 16px;
-            margin-top: 10px;
-            display: block;
-            text-decoration : none;
+        .sub-head-inner .market-logo {
+            margin: 25px 0;
+            float: left;
         }
-        .product-price span{
-            font-size: 16px;
-            color: #d32833;
+        .sub-head-inner .market-logo img {
+            width: 220px;
+            height: 62px;
         }
-
     </style>
-
 </head>
 <body>
-<div class="container con">
-    <div class="row">
-        <div class="col-md-2 logge">
-
+<div class="header_top">
+    <div class="sub-head-inner clearfix">
+        <div class="market-logo">
+            <a href="http://yanxuan.tuniu.com/">
+                <img th:src="@{http://m.tuniucdn.com/fb2/t1/G1/M00/56/FB/Cii-U1iFwCGIEUG7AAAYZaB7MGYAAHIbQPmRh8AABh9216.png}">
+            </a>
         </div>
+        <div class="sub-head-titles clearfix">
+            <ul>
+                <a href="http://yanxuan.tuniu.com/" class="active">
+                    <li>严选首页</li>
+                </a>
+                <a href="http://yanxuan.tuniu.com/market/search46" class="">
+                    <li>旅行小物</li>
+                </a>
+                <a href="http://yanxuan.tuniu.com/market/search51" class="">
+                    <li>箱包服饰</li>
+                </a>
+                <a href="http://www.tuniu.com/tucom/" target="_blank">
+                    <li>WIFI通信</li>
+                </a>
+                <a href="http://yanxuan.tuniu.com/market/search47" class="">
+                    <li>公仔玩具</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--<div class="container con">
+    <div class="row">
         <div class="col-md-8">
             <div class="form-group">
                 <input type="text" class="form-control sousuo" placeholder="耐克阿迪只要199"/>
-                <!--<button type="submit" class="btn btn-default suobtn">-->
-                    <!--<img class="img-responsive" alt="" th:src="@{/images/fangda.png}"/></img>-->
-                <!--</button>-->
+                <button th:type="submit" class="btn btn-default suobtn">
+                    <img class="img-responsive" th:src="@{/images/fangda.png}"/>
+                </button>
                 <ul class="ul-ul">
                     <li><a>小米1</a></li>
                     <li><a>iphone</a></li>
@@ -106,19 +103,28 @@
 
         </div>
     </div>
-</div>
+</div>-->
 <div class="marketwrap clearfix">
     <div class="product-list-wrap">
         <div class="product-list-inner">
             <div class="product-list-content">
+                <div class="product-list-condition clearfix">
+                    <ul>
+                        <li th:text="题材">
+                           <span th:value="22">2</span>
+                        </li>
+                        <li th:text="张数"></li>
+                        <li th:text="价格"></li>
+                    </ul>
+                </div>
                 <div class="product-list m-content clearfix">
                     <ul class="product-ul">
-                        <a class="product-item J_product-item" th:each="product : ${bkProductList}" th:href="@{'detail/'+${product.productId}}" target="_blank">
+                        <a class="product-item J_product-item" th:each="product : ${bkProductList}" th:href="@{'detail/'+${product.productId}}" th:title="查看详细内容" target="_blank">
                             <img th:src="@{${product.picturePath}}"/>
                             <div class="product-desc">
                                 <div class="product-title" th:text="${product.productName}"></div>
                                 <div class="product-price" style="display: block;">
-                                    <span th:text="${product.price}"></span>
+                                    <span th:text="'¥'+${product.price}"></span>
                                 </div>
                             </div>
                         </a>
