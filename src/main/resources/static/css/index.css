@@ -17,6 +17,10 @@ ol, ul {
     width: 1266px;
     margin: 0 auto;
 }
+.product-list-condition{
+    height: 30px;
+    line-height: 30px;
+}
 .product-ul{
     width: 100%;
 }
@@ -197,18 +201,16 @@ h5 {
     list-style-type: none;
     width: 80%;
     height: 20%;
-    margin-left: 8%;
-    margin-top: 2%;
 }
 
 .ul-ul li {
     float: left;
-    width: 10%;;
+    width: 6%;;
 }
 
 .ul-ul li a {
     text-decoration: none;
-    color: #FFB5C5;
+    cursor: pointer;
 }
 
 .chebtn {
