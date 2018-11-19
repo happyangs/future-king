@@ -35,15 +35,21 @@ function page_ctrl(data_obj) {
             contentType:"application/json;charset=utf-8",
             sync: true,
             success: function(data){
-                $('#J_product-item').empty();   //清空resText里面的所有内容
-                console.log(data);
-                // var html = '';
-                // $.each(data, function(commentIndex, comment){
-                //     html += '<div class="comment"><h6>' + comment['username']
-                //         + ':</h6><p class="para"' + comment['content']
-                //         + '</p></div>';
-                // });
-                // $('#resText').html(html);
+                $('.J_product-ul').empty();   //清空resText里面的所有内容
+                var html = '';
+                var info = data.info;
+                $.each(info, function(index, content){
+                    html += '<a class="product-item J_product-item" href="detail/'+content.productId+'" title="查看详细内容" target="_blank">'
+                         + '<img src="'+content.picturePath+'"/>'
+                        + ' <div class="product-desc">'
+                        + '  <div class="product-title" text="'+content.productName+'"></div>'
+                        + ' <div class="product-price" style="display: block;">'
+                        + ' <span text="¥'+content.price+'"></span>'
+                        + ' </div>'
+                        + '  </div>'
+                        + '  </a>'
+                });
+                $('.J_product-ul').html(html);
             },
             error:function (e) {
                 //返回500错误 或者其他 http状态码错误时 需要在error 回调函数中处理了 并且返回的数据还不能直接alert，需要使用

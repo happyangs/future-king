@@ -1,12 +1,17 @@
 package com.ahuthj.controller;
 
 import com.ahuthj.common.model.Response;
+import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.request.ProductQueryVo;
+import com.ahuthj.service.BkProductService;
 import com.ahuthj.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -21,6 +26,8 @@ public class ProductController {
     @Value("${com.email}")
     private String email;
 
+    @Autowired
+    private BkProductService bkProductService;
 
     @ResponseBody
     @RequestMapping(value = "/all/{pageNum}/{pageSize}", produces = {"application/json;charset=UTF-8"})
@@ -38,6 +45,8 @@ public class ProductController {
     @RequestMapping(value = "/queryByCondition" ,method = RequestMethod.POST)
     Response queryProduct(@RequestBody ProductQueryVo productQueryVo){
         logger.info(JsonUtil.obj2String(productQueryVo));
-        return Response.buildSuccessResponseWithInfo(JsonUtil.obj2String(productQueryVo));
+        List<BkProduct> bkProductList = bkProductService.pageQuery(productQueryVo);
+        logger.info(JsonUtil.obj2String(bkProductList));
+        return Response.buildSuccessResponseWithInfo(bkProductList);
     }
 }
