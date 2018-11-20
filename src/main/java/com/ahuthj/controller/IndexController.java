@@ -6,6 +6,7 @@ import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.request.ProductQueryVo;
 import com.ahuthj.service.BkProductService;
 import com.ahuthj.util.JsonUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -51,9 +53,13 @@ public class IndexController {
     @RequestMapping(value = "/detail/{productId}", produces = {"application/json;charset=UTF-8"})
     ModelAndView queryDetail(@PathVariable("productId") int productId){
         ModelAndView modelAndView = new ModelAndView();
-       // modelAndView.addObject("productId",productId);
         modelAndView.setViewName("thymeleaf/product_detail");
+
+        List<BkProduct> bkProductList = bkProductService.findByProductId(new ArrayList<>(productId));
+        if (CollectionUtils.isNotEmpty(bkProductList)){
+            modelAndView.addObject("product",bkProductList.get(0));
+        }
+
         return modelAndView;
     }
-
 }

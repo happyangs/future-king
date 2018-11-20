@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface BkProductService {
 
-    List<BkProduct> findAllProduct();
+    List<BkProduct> findByProductId(List<Integer> productIds);
 
     Result<BkProduct> pageQuery(ProductQueryVo productQueryVo);
 }

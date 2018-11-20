@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 .page_ctrl *{
-  line-height: 26px;
+  line-height: 44px;
 }
 .page_ctrl button{
   margin:0 3px;
-  min-width:30px;
+  min-width:55px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   color: #5e5e5e;

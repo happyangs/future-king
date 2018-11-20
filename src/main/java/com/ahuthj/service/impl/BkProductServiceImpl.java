@@ -31,13 +31,12 @@ public class BkProductServiceImpl implements BkProductService {
     private BkProductMapper bkProductMapper;
 
     @Override
-    public List<BkProduct> findAllProduct() {
-
+    public List<BkProduct> findByProductId(List<Integer> productIds) {
         BkProductExample bkProductExample = new BkProductExample();
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
-        criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());
-        List<BkProduct> bkProductList = bkProductMapper.selectByExample(bkProductExample);
-        return bkProductList;
+        criteria.andProductIdIn(productIds);
+        List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
+        return list;
     }
 
     @Override
