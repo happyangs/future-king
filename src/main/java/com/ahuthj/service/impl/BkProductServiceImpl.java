@@ -31,7 +31,7 @@ public class BkProductServiceImpl implements BkProductService {
 
         BkProductExample bkProductExample = new BkProductExample();
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
-        criteria.andIsDeleteEqualTo(0);
+        criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());
         List<BkProduct> bkProductList = bkProductMapper.selectByExample(bkProductExample);
         return bkProductList;
     }
