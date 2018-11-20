@@ -1,11 +1,13 @@
 package com.ahuthj.model;
 
+import com.ahuthj.common.model.PageInfo;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BkProductExample {
+public class BkProductExample extends PageInfo {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -14,7 +16,7 @@ public class BkProductExample {
 
     private Integer limit;
 
-    private Long offset;
+    private Integer offset;
 
     public BkProductExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -77,11 +79,11 @@ public class BkProductExample {
         return limit;
     }
 
-    public void setOffset(Long offset) {
+    public void setOffset(Integer offset) {
         this.offset = offset;
     }
 
-    public Long getOffset() {
+    public Integer getOffset() {
         return offset;
     }
 

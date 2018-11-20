@@ -114,7 +114,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.ahuthj.model.BkProduct">
-    insert into bk_product (id, product_id, product_name, 
+    insert into bk_product (id, product_id, product_name,
       price, product_desc, picture_path, 
       remark, add_time, update_time, 
       is_delete)

@@ -1,5 +1,7 @@
 package com.ahuthj.service.impl;
 
+import com.ahuthj.common.model.Meta;
+import com.ahuthj.common.model.Result;
 import com.ahuthj.controller.ProductController;
 import com.ahuthj.enums.IsDeleteEnum;
 import com.ahuthj.mapper.BkProductMapper;
@@ -8,6 +10,8 @@ import com.ahuthj.model.BkProductExample;
 import com.ahuthj.model.request.ProductQueryVo;
 import com.ahuthj.service.BkProductService;
 import com.alibaba.druid.support.json.JSONUtils;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,14 +41,21 @@ public class BkProductServiceImpl implements BkProductService {
     }
 
     @Override
-    public List<BkProduct> pageQuery(ProductQueryVo productQueryVo) {
+    public Result<BkProduct> pageQuery(ProductQueryVo productQueryVo) {
+        int pageNumum = productQueryVo.getPageNum();
+        int pageSize = productQueryVo.getPageSize();
+        PageHelper.startPage(pageNumum , pageSize);
         BkProductExample bkProductExample = new BkProductExample();
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
-        criteria.andIsDeleteEqualTo(0);
-        bkProductExample.setOffset(productQueryVo.getPageNum().longValue());
-        bkProductExample.setLimit(productQueryVo.getPageSize());
-        List<BkProduct> bkProductList = bkProductMapper.selectByExample(bkProductExample);
+        criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());
 
-        return bkProductList;
+        List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
+        //得到分页的结果对象
+        PageInfo<BkProduct> pageInfo = new PageInfo<>(list);
+        //得到分页中的person条目对象
+        List<BkProduct> responseList = pageInfo.getList();
+        Long total = pageInfo.getTotal();
+        logger.info("-----------------"+String.valueOf(total));
+        return Result.buildResult(responseList, Meta.buildMeta(total.intValue()));
     }
 }

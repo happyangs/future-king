@@ -16,14 +16,7 @@ function page_ctrl(data_obj) {
   function page_even() {
     /*加载数据*/
     function change_content() {
-      /*此处根据项目实际自行编写页面显示内容的方法,举例说明:
-      var page_content='<ul style="width: 300px;margin: 10px auto;">';//当前页内容
-      for(var i=0;i<per_num;i++){
-        page_content+='<li>'+((current_page-1)*per_num+i+1)+',分页条目</li>';
-      }
-      page_content+='</ul>';
-      $(obj_box).children('.page_content').html(page_content);
-      */
+
         $.ajax({
             type: 'POST',
             url: 'product/queryByCondition',
@@ -37,14 +30,15 @@ function page_ctrl(data_obj) {
             success: function(data){
                 $('.J_product-ul').empty();   //清空resText里面的所有内容
                 var html = '';
-                var info = data.info;
+                var info = data.info.data;
+
                 $.each(info, function(index, content){
                     html += '<a class="product-item J_product-item" href="detail/'+content.productId+'" title="查看详细内容" target="_blank">'
                          + '<img src="'+content.picturePath+'"/>'
                         + ' <div class="product-desc">'
-                        + '  <div class="product-title" text="'+content.productName+'"></div>'
+                        + '  <div class="product-title">'+content.productName+'</div>'
                         + ' <div class="product-price" style="display: block;">'
-                        + ' <span text="¥'+content.price+'"></span>'
+                        + ' <span>¥'+content.price+'</span>'
                         + ' </div>'
                         + '  </div>'
                         + '  </a>'
@@ -52,15 +46,13 @@ function page_ctrl(data_obj) {
                 $('.J_product-ul').html(html);
             },
             error:function (e) {
-                //返回500错误 或者其他 http状态码错误时 需要在error 回调函数中处理了 并且返回的数据还不能直接alert，需要使用
-                //$.parseJSON 进行转译    res.msg 是自己组装的错误信息通用变量
                 var res = $.parseJSON(e.responseText);
                 console.log(res.msg);
             }
         });
-     // $('.J_product-item').html(11);
+
     }
-    change_content();
+   change_content();
     var inp_val=(current_page==total_page)?1:current_page+1;//跳转页数,input默认显示值
     var append_html='<button class="prev_page">上一页</button>';
     for(var i=0;i<total_page-1;i++){

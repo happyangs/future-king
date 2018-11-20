@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * bk_product
  * @author 
  */
 public class BkProduct implements Serializable {

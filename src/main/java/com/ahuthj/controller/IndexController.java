@@ -1,9 +1,11 @@
 package com.ahuthj.controller;
 
 import com.ahuthj.common.model.Response;
+import com.ahuthj.common.model.Result;
 import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.request.ProductQueryVo;
 import com.ahuthj.service.BkProductService;
+import com.ahuthj.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +37,12 @@ public class IndexController {
                         HttpServletResponse response,
                         HttpSession session){
         ModelAndView modelAndView = new ModelAndView();
-        List<BkProduct> bkProductList = bkProductService.findAllProduct();
+        ProductQueryVo productQuery = new ProductQueryVo();
+        productQuery.setPageNum(0);
+        productQuery.setPageSize(5);
+        Result<BkProduct> bkProductList = bkProductService.pageQuery(productQuery);
+        logger.info(JsonUtil.obj2String(bkProductList));
         modelAndView.addObject("bkProductList",bkProductList);
-        modelAndView.addObject("totalCount",51);
         modelAndView.setViewName("thymeleaf/index");
         return modelAndView;
     }

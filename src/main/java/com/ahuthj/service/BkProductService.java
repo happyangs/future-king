@@ -1,5 +1,6 @@
 package com.ahuthj.service;
 
+import com.ahuthj.common.model.Result;
 import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.request.ProductQueryVo;
 
@@ -12,5 +13,5 @@ public interface BkProductService {
 
     List<BkProduct> findAllProduct();
 
-    List<BkProduct> pageQuery(ProductQueryVo productQueryVo);
+    Result<BkProduct> pageQuery(ProductQueryVo productQueryVo);
 }
