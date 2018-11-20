@@ -45,9 +45,9 @@ public class BkProductServiceImpl implements BkProductService {
 
     @Override
     public Result<BkProduct> pageQuery(ProductQueryVo productQueryVo) {
-        int pageNumum = productQueryVo.getPageNum();
+        int pageNum = productQueryVo.getPageNum();
         int pageSize = productQueryVo.getPageSize();
-        PageHelper.startPage(pageNumum , pageSize);
+        PageHelper.startPage(pageNum , pageSize);
         BkProductExample bkProductExample = new BkProductExample();
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
         criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());

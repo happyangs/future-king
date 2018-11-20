@@ -3,7 +3,9 @@ package com.ahuthj.controller;
 import com.ahuthj.common.model.Response;
 import com.ahuthj.common.model.Result;
 import com.ahuthj.model.BkProduct;
+import com.ahuthj.model.BkProductPicture;
 import com.ahuthj.model.request.ProductQueryVo;
+import com.ahuthj.service.BkProductPictureService;
 import com.ahuthj.service.BkProductService;
 import com.ahuthj.util.JsonUtil;
 import org.apache.commons.collections4.CollectionUtils;
@@ -34,6 +36,9 @@ public class IndexController {
     @Autowired
     private BkProductService bkProductService;
 
+    @Autowired
+    private BkProductPictureService bkProductPictureService;
+
     @RequestMapping("/index")
     public ModelAndView index(@ModelAttribute ProductQueryVo productQueryVo,
                         HttpServletResponse response,
@@ -54,12 +59,12 @@ public class IndexController {
     ModelAndView queryDetail(@PathVariable("productId") int productId){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("thymeleaf/product_detail");
-
-        List<BkProduct> bkProductList = bkProductService.findByProductId(new ArrayList<>(productId));
-        if (CollectionUtils.isNotEmpty(bkProductList)){
-            modelAndView.addObject("product",bkProductList.get(0));
-        }
-
+        List<Integer> list = new ArrayList<>();list.add(productId);
+        List<BkProductPicture> pictureList = bkProductPictureService.findPictureByProductId(list);
+        List<BkProduct> productList = bkProductService.findByProductId(list);
+        logger.info("============"+JsonUtil.obj2String(pictureList));
+        modelAndView.addObject("pictureList",pictureList);
+        modelAndView.addObject("product",productList.get(0));
         return modelAndView;
     }
 }
