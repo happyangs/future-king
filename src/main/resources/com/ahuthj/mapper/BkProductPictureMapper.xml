@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ahuthj.mapper.BkProductMapper">
-  <resultMap id="BaseResultMap" type="com.ahuthj.model.BkProduct">
+<mapper namespace="com.ahuthj.mapper.BkProductPictureMapper">
+  <resultMap id="BaseResultMap" type="com.ahuthj.model.BkProductPicture">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
-    <result column="product_type" jdbcType="INTEGER" property="productType" />
-    <result column="product_name" jdbcType="VARCHAR" property="productName" />
-    <result column="show_path" jdbcType="VARCHAR" property="showPath" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="html_num" jdbcType="INTEGER" property="htmlNum" />
-    <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
-    <result column="product_synopsis" jdbcType="VARCHAR" property="productSynopsis" />
+    <result column="picture_type" jdbcType="INTEGER" property="pictureType" />
+    <result column="picture_path" jdbcType="VARCHAR" property="picturePath" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -75,16 +70,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, product_id, product_type, product_name, show_path, price, html_num, product_desc,
-    product_synopsis, remark, add_time, update_time, is_delete
+    id, product_id, picture_type, picture_path, remark, add_time, update_time, is_delete
   </sql>
-  <select id="selectByExample" parameterType="com.ahuthj.model.BkProductExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ahuthj.model.BkProductPictureExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from bk_product
+    from bk_product_picture
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -103,33 +97,29 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from bk_product
+    from bk_product_picture
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from bk_product
+    delete from bk_product_picture
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ahuthj.model.BkProductExample">
-    delete from bk_product
+  <delete id="deleteByExample" parameterType="com.ahuthj.model.BkProductPictureExample">
+    delete from bk_product_picture
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ahuthj.model.BkProduct">
-    insert into bk_product (id, product_id, product_type,
-    product_name, show_path, price,
-    html_num, product_desc, product_synopsis,
-    remark, add_time, update_time,
-    is_delete)
-    values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{productType,jdbcType=INTEGER},
-    #{productName,jdbcType=VARCHAR}, #{showPath,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
-    #{htmlNum,jdbcType=INTEGER}, #{productDesc,jdbcType=VARCHAR}, #{productSynopsis,jdbcType=VARCHAR},
-    #{remark,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
-    #{isDelete,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.ahuthj.model.BkProductPicture">
+    insert into bk_product_picture (id, product_id, picture_type,
+    picture_path, remark, add_time,
+    update_time, is_delete)
+    values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{pictureType,jdbcType=INTEGER},
+    #{picturePath,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP},
+    #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.ahuthj.model.BkProduct">
-    insert into bk_product
+  <insert id="insertSelective" parameterType="com.ahuthj.model.BkProductPicture">
+    insert into bk_product_picture
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -137,26 +127,11 @@
       <if test="productId != null">
         product_id,
       </if>
-      <if test="productType != null">
-        product_type,
+      <if test="pictureType != null">
+        picture_type,
       </if>
-      <if test="productName != null">
-        product_name,
-      </if>
-      <if test="showPath != null">
-        show_path,
-      </if>
-      <if test="price != null">
-        price,
-      </if>
-      <if test="htmlNum != null">
-        html_num,
-      </if>
-      <if test="productDesc != null">
-        product_desc,
-      </if>
-      <if test="productSynopsis != null">
-        product_synopsis,
+      <if test="picturePath != null">
+        picture_path,
       </if>
       <if test="remark != null">
         remark,
@@ -178,26 +153,11 @@
       <if test="productId != null">
         #{productId,jdbcType=INTEGER},
       </if>
-      <if test="productType != null">
-        #{productType,jdbcType=INTEGER},
+      <if test="pictureType != null">
+        #{pictureType,jdbcType=INTEGER},
       </if>
-      <if test="productName != null">
-        #{productName,jdbcType=VARCHAR},
-      </if>
-      <if test="showPath != null">
-        #{showPath,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="htmlNum != null">
-        #{htmlNum,jdbcType=INTEGER},
-      </if>
-      <if test="productDesc != null">
-        #{productDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="productSynopsis != null">
-        #{productSynopsis,jdbcType=VARCHAR},
+      <if test="picturePath != null">
+        #{picturePath,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
@@ -213,14 +173,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ahuthj.model.BkProductExample" resultType="java.lang.Long">
-    select count(*) from bk_product
+  <select id="countByExample" parameterType="com.ahuthj.model.BkProductPictureExample" resultType="java.lang.Long">
+    select count(*) from bk_product_picture
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update bk_product
+    update bk_product_picture
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -228,26 +188,11 @@
       <if test="record.productId != null">
         product_id = #{record.productId,jdbcType=INTEGER},
       </if>
-      <if test="record.productType != null">
-        product_type = #{record.productType,jdbcType=INTEGER},
+      <if test="record.pictureType != null">
+        picture_type = #{record.pictureType,jdbcType=INTEGER},
       </if>
-      <if test="record.productName != null">
-        product_name = #{record.productName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.showPath != null">
-        show_path = #{record.showPath,jdbcType=VARCHAR},
-      </if>
-      <if test="record.price != null">
-        price = #{record.price,jdbcType=DECIMAL},
-      </if>
-      <if test="record.htmlNum != null">
-        html_num = #{record.htmlNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.productDesc != null">
-        product_desc = #{record.productDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="record.productSynopsis != null">
-        product_synopsis = #{record.productSynopsis,jdbcType=VARCHAR},
+      <if test="record.picturePath != null">
+        picture_path = #{record.picturePath,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -267,16 +212,11 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update bk_product
+    update bk_product_picture
     set id = #{record.id,jdbcType=INTEGER},
     product_id = #{record.productId,jdbcType=INTEGER},
-    product_type = #{record.productType,jdbcType=INTEGER},
-    product_name = #{record.productName,jdbcType=VARCHAR},
-    show_path = #{record.showPath,jdbcType=VARCHAR},
-    price = #{record.price,jdbcType=DECIMAL},
-    html_num = #{record.htmlNum,jdbcType=INTEGER},
-    product_desc = #{record.productDesc,jdbcType=VARCHAR},
-    product_synopsis = #{record.productSynopsis,jdbcType=VARCHAR},
+    picture_type = #{record.pictureType,jdbcType=INTEGER},
+    picture_path = #{record.picturePath,jdbcType=VARCHAR},
     remark = #{record.remark,jdbcType=VARCHAR},
     add_time = #{record.addTime,jdbcType=TIMESTAMP},
     update_time = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -285,32 +225,17 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ahuthj.model.BkProduct">
-    update bk_product
+  <update id="updateByPrimaryKeySelective" parameterType="com.ahuthj.model.BkProductPicture">
+    update bk_product_picture
     <set>
       <if test="productId != null">
         product_id = #{productId,jdbcType=INTEGER},
       </if>
-      <if test="productType != null">
-        product_type = #{productType,jdbcType=INTEGER},
+      <if test="pictureType != null">
+        picture_type = #{pictureType,jdbcType=INTEGER},
       </if>
-      <if test="productName != null">
-        product_name = #{productName,jdbcType=VARCHAR},
-      </if>
-      <if test="showPath != null">
-        show_path = #{showPath,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        price = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="htmlNum != null">
-        html_num = #{htmlNum,jdbcType=INTEGER},
-      </if>
-      <if test="productDesc != null">
-        product_desc = #{productDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="productSynopsis != null">
-        product_synopsis = #{productSynopsis,jdbcType=VARCHAR},
+      <if test="picturePath != null">
+        picture_path = #{picturePath,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -327,20 +252,15 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ahuthj.model.BkProduct">
-    update bk_product
+  <update id="updateByPrimaryKey" parameterType="com.ahuthj.model.BkProductPicture">
+    update bk_product_picture
     set product_id = #{productId,jdbcType=INTEGER},
-    product_type = #{productType,jdbcType=INTEGER},
-    product_name = #{productName,jdbcType=VARCHAR},
-    show_path = #{showPath,jdbcType=VARCHAR},
-    price = #{price,jdbcType=DECIMAL},
-    html_num = #{htmlNum,jdbcType=INTEGER},
-    product_desc = #{productDesc,jdbcType=VARCHAR},
-    product_synopsis = #{productSynopsis,jdbcType=VARCHAR},
-    remark = #{remark,jdbcType=VARCHAR},
-    add_time = #{addTime,jdbcType=TIMESTAMP},
-    update_time = #{updateTime,jdbcType=TIMESTAMP},
-    is_delete = #{isDelete,jdbcType=INTEGER}
+      picture_type = #{pictureType,jdbcType=INTEGER},
+      picture_path = #{picturePath,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

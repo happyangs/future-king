@@ -5,6 +5,7 @@ import com.ahuthj.common.model.Result;
 import com.ahuthj.controller.ProductController;
 import com.ahuthj.enums.IsDeleteEnum;
 import com.ahuthj.mapper.BkProductMapper;
+import com.ahuthj.mapper.BkProductPictureMapper;
 import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.BkProductExample;
 import com.ahuthj.model.request.ProductQueryVo;
@@ -30,6 +31,9 @@ public class BkProductServiceImpl implements BkProductService {
     @Autowired
     private BkProductMapper bkProductMapper;
 
+    @Autowired
+    private BkProductPictureMapper bkProductPictureMapper;
+
     @Override
     public List<BkProduct> findByProductId(List<Integer> productIds) {
         BkProductExample bkProductExample = new BkProductExample();
@@ -47,7 +51,6 @@ public class BkProductServiceImpl implements BkProductService {
         BkProductExample bkProductExample = new BkProductExample();
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
         criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());
-
         List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
         //得到分页的结果对象
         PageInfo<BkProduct> pageInfo = new PageInfo<>(list);

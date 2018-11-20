@@ -1,13 +1,12 @@
 package com.ahuthj.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * @author 
  */
-public class BkProduct implements Serializable {
+public class BkProductPicture implements Serializable {
     private Integer id;
 
     /**
@@ -16,39 +15,14 @@ public class BkProduct implements Serializable {
     private Integer productId;
 
     /**
-     * 商品类型
+     * 图片类型 0-其他 1-首页 2-尾页 3-展示页
      */
-    private Integer productType;
+    private Integer pictureType;
 
     /**
-     * 商品名称
+     * 图片链接
      */
-    private String productName;
-
-    /**
-     * 首页图片链接
-     */
-    private String showPath;
-
-    /**
-     * 商品价格
-     */
-    private BigDecimal price;
-
-    /**
-     * 页面张数
-     */
-    private Integer htmlNum;
-
-    /**
-     * 商品描述
-     */
-    private String productDesc;
-
-    /**
-     * 详情简介
-     */
-    private String productSynopsis;
+    private String picturePath;
 
     /**
      * 备注
@@ -88,60 +62,20 @@ public class BkProduct implements Serializable {
         this.productId = productId;
     }
 
-    public Integer getProductType() {
-        return productType;
+    public Integer getPictureType() {
+        return pictureType;
     }
 
-    public void setProductType(Integer productType) {
-        this.productType = productType;
+    public void setPictureType(Integer pictureType) {
+        this.pictureType = pictureType;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getPicturePath() {
+        return picturePath;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getShowPath() {
-        return showPath;
-    }
-
-    public void setShowPath(String showPath) {
-        this.showPath = showPath;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Integer getHtmlNum() {
-        return htmlNum;
-    }
-
-    public void setHtmlNum(Integer htmlNum) {
-        this.htmlNum = htmlNum;
-    }
-
-    public String getProductDesc() {
-        return productDesc;
-    }
-
-    public void setProductDesc(String productDesc) {
-        this.productDesc = productDesc;
-    }
-
-    public String getProductSynopsis() {
-        return productSynopsis;
-    }
-
-    public void setProductSynopsis(String productSynopsis) {
-        this.productSynopsis = productSynopsis;
+    public void setPicturePath(String picturePath) {
+        this.picturePath = picturePath;
     }
 
     public String getRemark() {
@@ -187,16 +121,11 @@ public class BkProduct implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        BkProduct other = (BkProduct) that;
+        BkProductPicture other = (BkProductPicture) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getProductId() == null ? other.getProductId() == null : this.getProductId().equals(other.getProductId()))
-            && (this.getProductType() == null ? other.getProductType() == null : this.getProductType().equals(other.getProductType()))
-            && (this.getProductName() == null ? other.getProductName() == null : this.getProductName().equals(other.getProductName()))
-            && (this.getShowPath() == null ? other.getShowPath() == null : this.getShowPath().equals(other.getShowPath()))
-            && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
-            && (this.getHtmlNum() == null ? other.getHtmlNum() == null : this.getHtmlNum().equals(other.getHtmlNum()))
-            && (this.getProductDesc() == null ? other.getProductDesc() == null : this.getProductDesc().equals(other.getProductDesc()))
-            && (this.getProductSynopsis() == null ? other.getProductSynopsis() == null : this.getProductSynopsis().equals(other.getProductSynopsis()))
+            && (this.getPictureType() == null ? other.getPictureType() == null : this.getPictureType().equals(other.getPictureType()))
+            && (this.getPicturePath() == null ? other.getPicturePath() == null : this.getPicturePath().equals(other.getPicturePath()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getAddTime() == null ? other.getAddTime() == null : this.getAddTime().equals(other.getAddTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
@@ -209,13 +138,8 @@ public class BkProduct implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getProductId() == null) ? 0 : getProductId().hashCode());
-        result = prime * result + ((getProductType() == null) ? 0 : getProductType().hashCode());
-        result = prime * result + ((getProductName() == null) ? 0 : getProductName().hashCode());
-        result = prime * result + ((getShowPath() == null) ? 0 : getShowPath().hashCode());
-        result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
-        result = prime * result + ((getHtmlNum() == null) ? 0 : getHtmlNum().hashCode());
-        result = prime * result + ((getProductDesc() == null) ? 0 : getProductDesc().hashCode());
-        result = prime * result + ((getProductSynopsis() == null) ? 0 : getProductSynopsis().hashCode());
+        result = prime * result + ((getPictureType() == null) ? 0 : getPictureType().hashCode());
+        result = prime * result + ((getPicturePath() == null) ? 0 : getPicturePath().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getAddTime() == null) ? 0 : getAddTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
@@ -231,13 +155,8 @@ public class BkProduct implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", productId=").append(productId);
-        sb.append(", productType=").append(productType);
-        sb.append(", productName=").append(productName);
-        sb.append(", showPath=").append(showPath);
-        sb.append(", price=").append(price);
-        sb.append(", htmlNum=").append(htmlNum);
-        sb.append(", productDesc=").append(productDesc);
-        sb.append(", productSynopsis=").append(productSynopsis);
+        sb.append(", pictureType=").append(pictureType);
+        sb.append(", picturePath=").append(picturePath);
         sb.append(", remark=").append(remark);
         sb.append(", addTime=").append(addTime);
         sb.append(", updateTime=").append(updateTime);

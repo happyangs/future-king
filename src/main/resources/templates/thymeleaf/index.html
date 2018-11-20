@@ -122,7 +122,7 @@
                 <div class="J_product-list product-list m-content clearfix">
                     <ul class="product-ul J_product-ul">
                         <a class="product-item J_product-item" th:each="product : ${bkProductList.data}" th:href="@{'detail/'+${product.productId}}" th:title="查看详细内容" target="_blank">
-                            <img th:src="@{${product.picturePath}}"/>
+                            <img th:src="@{${product.showPath}}"/>
                             <div class="product-desc">
                                 <div class="product-title" th:text="${product.productName}"></div>
                                 <div class="product-price" style="display: block;">

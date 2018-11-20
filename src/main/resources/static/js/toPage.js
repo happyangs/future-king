@@ -34,7 +34,7 @@ function page_ctrl(data_obj) {
 
                 $.each(info, function(index, content){
                     html += '<a class="product-item J_product-item" href="detail/'+content.productId+'" title="查看详细内容" target="_blank">'
-                         + '<img src="'+content.picturePath+'"/>'
+                         + '<img src="'+content.showPath+'"/>'
                         + ' <div class="product-desc">'
                         + '  <div class="product-title">'+content.productName+'</div>'
                         + ' <div class="product-price" style="display: block;">'
