@@ -47,8 +47,8 @@ spring:
         stmp:
           auth: true
           starttls:
-            enable: true
-            required: true
+            enable: false
+            required: false
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

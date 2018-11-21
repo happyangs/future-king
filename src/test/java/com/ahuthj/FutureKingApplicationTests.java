@@ -1,7 +1,7 @@
 package com.ahuthj;
 
 import com.ahuthj.util.HttpClientUtil;
-import com.ahuthj.util.MailSender;
+import com.ahuthj.util.SimpleMailSender;
 import com.alibaba.fastjson.JSON;
 import org.apache.http.client.ClientProtocolException;
 import org.junit.Test;
@@ -29,7 +29,7 @@ public class FutureKingApplicationTests {
 	private JavaMailSender javaMailSender;
 
 	@Autowired
-	MailSender mailSender;
+    SimpleMailSender sendTemplateMail;
 
 	@Test
 	public void contextLoads() {
@@ -71,7 +71,9 @@ public class FutureKingApplicationTests {
 	}
 	@Test
 	public void sendSimpleMail1() throws Exception {
-		mailSender.sendText();
+        sendTemplateMail.sendTemplateMail();
+        //sendTemplateMail.sendText();
+//        sendTemplateMail.sendAttachment();
 //		https://yq.aliyun.com/articles/670214?spm=a2c4e.11155472.0.0.570db848cd5XpU
 	}
 
