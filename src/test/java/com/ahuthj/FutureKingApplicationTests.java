@@ -1,13 +1,17 @@
 package com.ahuthj;
 
 import com.ahuthj.util.HttpClientUtil;
+import com.ahuthj.util.MailSender;
 import com.alibaba.fastjson.JSON;
 import org.apache.http.client.ClientProtocolException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
@@ -20,6 +24,12 @@ import java.util.Map;
 public class FutureKingApplicationTests {
 
 	private static Logger logger = LoggerFactory.getLogger(FutureKingApplicationTests.class);
+
+	@Autowired
+	private JavaMailSender javaMailSender;
+
+	@Autowired
+	MailSender mailSender;
 
 	@Test
 	public void contextLoads() {
@@ -44,4 +54,25 @@ public class FutureKingApplicationTests {
 		String body = HttpClientUtil.sendGetData(url,"utf-8");
 		System.out.println("3响应结果：" + body);
 	}
+
+
+	/**
+	 * QQ邮箱
+	 * @throws Exception
+	 */
+	@Test
+	public void sendSimpleMail() throws Exception {
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setFrom("632669794@qq.com");
+		message.setTo("ahuthj@163.com");
+		message.setSubject("主题：简单邮件");
+		message.setText("测试邮件内容");
+		javaMailSender.send(message);
+	}
+	@Test
+	public void sendSimpleMail1() throws Exception {
+		mailSender.sendText();
+//		https://yq.aliyun.com/articles/670214?spm=a2c4e.11155472.0.0.570db848cd5XpU
+	}
+
 }

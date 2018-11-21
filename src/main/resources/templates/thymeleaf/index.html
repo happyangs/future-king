@@ -68,16 +68,16 @@
                     <li>首页</li>
                 </a>
                 <a href="http://yanxuan.tuniu.com/market/search46" class="">
-                    <li>旅行小物</li>
+                    <li>HTML</li>
                 </a>
                 <a href="http://yanxuan.tuniu.com/market/search51" class="">
-                    <li>箱包服饰</li>
+                    <li>JSP</li>
                 </a>
                 <a href="http://www.tuniu.com/tucom/" target="_blank">
-                    <li>WIFI通信</li>
+                    <li>ASP</li>
                 </a>
                 <a href="http://yanxuan.tuniu.com/market/search47" class="">
-                    <li>公仔玩具</li>
+                    <li>数据库</li>
                 </a>
             </ul>
         </div>
@@ -140,20 +140,11 @@
 <div class="page_2"></div>
 </body>
 
-<script type="text/javascript" th:inline="javascript">
-    ajaxSubmit();
-    function ajaxSubmit(){
-        var songName = $("#songName").val();
-        var singer = $("#singer").val();
-    }
-</script>
-
 <script th:inline="javascript">
     /* 页面取值*/
     var totalCount = [[${bkProductList.meta.count}]];
 </script>
 <script>
-
     /*容器2参数*/
     var obj_2 = {
         obj_box: '.page_2',//翻页容器

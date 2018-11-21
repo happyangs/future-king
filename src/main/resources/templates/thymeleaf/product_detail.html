@@ -7,14 +7,16 @@
 </head>
 
 <body>
-
 <div class="scrolltab">
     <span id="sLeftBtnA" class="sLeftBtnABan"></span>
     <span id="sRightBtnA" class="sRightBtnA"></span>
     <ul class="ulBigPic">
         <li class="liSelected" th:each="picture : ${pictureList}" >
 			<span class="sPic">
-				<i class="iBigPic"><a href="http://www.17sucai.com/" target="_blank" ><img width="560" height="420" th:src="@{${picture.picturePath}}" /></a></i></span>
+				<i class="iBigPic"><a href="http://www.17sucai.com/" target="_blank" >
+                    <img width="560" height="420" th:src="@{${picture.picturePath}}" /></a>
+                </i>
+            </span>
             <div class="sSideBox">
 				<span class="product-title" th:text="${product.productDesc}"></span>
 				<span class="sIntro" th:text="'作品简介：'+${product.productSynopsis}"></span>
@@ -23,16 +25,12 @@
                 <span class="detail-cl">【承诺2】同一所学校不发第二件！！</span>
                 <span class="detail-cl">【承诺3】优质售后 提供答疑资料！！！</span>
                 <!--<span>如需该作品论文 请联系淘宝掌柜</span>-->
-
                  <span style="font-size: 15px;    margin-top: 23px;" th:text="'张数：'+${product.htmlNum}+'页'"></span>
 			</div>
                 <div class="detail-sj">售价:</div>
                 <div class="detail-price" th:text="'¥'+${product.price}"></div>
                 <div class="purchase_btns" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</div>
-
-
         </li>
-
     </ul>
     <div class="dSmallPicBox">
         <div class="dSmallPic">
