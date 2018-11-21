@@ -15,49 +15,31 @@
         <li class="liSelected" th:each="picture : ${pictureList}" >
 			<span class="sPic">
 				<i class="iBigPic"><a href="http://www.17sucai.com/" target="_blank" ><img width="560" height="420" th:src="@{${picture.picturePath}}" /></a></i></span>
-            <span class="sSideBox">
-				<span class="sTitle" th:text="${product.productDesc}"></span>
-				<span class="sIntro" th:text="'简介：'+${product.productSynopsis}"></span>
-                <span th:text="${product.price}"></span>
-                 <span th:text="${product.htmlNum}+'张'"></span>
-			</span>
+            <div class="sSideBox">
+				<span class="product-title" th:text="${product.productDesc}"></span>
+				<span class="sIntro" th:text="'作品简介：'+${product.productSynopsis}"></span>
+                <span class="detail-cl">我们承诺：</span>
+                <span class="detail-cl">【承诺1】功能完整 代码简洁！</span>
+                <span class="detail-cl">【承诺2】同一所学校不发第二件！！</span>
+                <span class="detail-cl">【承诺3】优质售后 提供答疑资料！！！</span>
+                <!--<span>如需该作品论文 请联系淘宝掌柜</span>-->
+
+                 <span style="font-size: 15px;    margin-top: 23px;" th:text="'张数：'+${product.htmlNum}+'页'"></span>
+			</div>
+                <div class="detail-sj">售价:</div>
+                <div class="detail-price" th:text="'¥'+${product.price}"></div>
+                <div class="purchase_btns" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</div>
+
+
         </li>
 
-    </ul><!--ulBigPic end-->
+    </ul>
     <div class="dSmallPicBox">
         <div class="dSmallPic">
             <ul class="ulSmallPic" style="width:2646px;left:0px" rel="stop">
-                <li class="liSelected">
-                    <span class="sPic"><img alt="东南亚民族风的家 品味跨时空异域情怀" th:src="@{http://m.tuniucdn.com/fb2/t1/G1/M00/7A/B4/Cii9EFie4xyITCeHAAXAYvy52coAAHcKwDeGk0ABcB6854.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">东南亚民族风的家 品味跨时空异域情怀</span>
-                </li>
-                <li>
-                    <span class="sPic"><img alt="永恒的经典  黑白家居带您回味每一秒的精彩" th:src="@{/images/s02.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">永恒的经典  黑白家居带您回味每一秒的精彩</span>
-                </li>
-                <li>
-                    <span class="sPic"><img alt="蓝色格调 倾力打造幸福家居魅力" th:src="@{/images/s03.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">蓝色格调 倾力打造幸福家居魅力</span>
-                </li>
-                <li>
-                    <span class="sPic"><img alt="迷你小客厅 萌翻你的家" th:src="@{/images/s04.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">迷你小客厅 萌翻你的家</span>
-                </li>
-                <li>
-                    <span class="sPic"><img alt="时尚的诱惑 5000元搭出摩登五彩客厅" th:src="@{/images/s05.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">时尚的诱惑 5000元搭出摩登五彩客厅</span>
-                </li>
-                <li>
-                    <span class="sPic"><img alt="实用又百搭 同一款沙发的不同搭配" th:src="@{/images/s06.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">实用又百搭 同一款沙发的不同搭配</span>
-                </li>
-                <li>
-                    <span class="sPic"><img alt="炫出好心情 多彩沙发搭出缤纷现代感客厅" th:src="@{/images/s07.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">炫出好心情 多彩沙发搭出缤纷现代感客厅</span>
-                </li>
-                <li>
-                    <span class="sPic"><img alt="水韵深邃 东南亚风情家具软装搭配" th:src="@{/images/s08.jpg}" width="135" height="100" /></span>
-                    <span class="sTitle">水韵深邃 东南亚风情家具软装搭配</span>
+                <li th:each="picture : ${pictureList}" >
+                    <span  class="sPic"><img th:src="@{${picture.picturePath}}" width="135" height="100" /></span>
+                    <span  class="sTitle" th:text="${picture.pictureType}"></span>
                 </li>
             </ul>
         </div>

@@ -25,6 +25,7 @@ public class BkProductPictureServiceImpl implements BkProductPictureService {
         BkProductPictureExample.Criteria criteria = bkProductPictureExample.createCriteria();
         criteria.andProductIdIn(productIds);
         criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());
+        bkProductPictureExample.setOrderByClause("picture_type asc");
         List<BkProductPicture> list = bkProductPictureMapper.selectByExample(bkProductPictureExample);
         return list;
     }
