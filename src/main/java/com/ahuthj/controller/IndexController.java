@@ -67,4 +67,20 @@ public class IndexController {
         modelAndView.addObject("product",productList.get(0));
         return modelAndView;
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/manage/login", produces = {"application/json;charset=UTF-8"})
+    ModelAndView manageLogin(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("thymeleaf/manage/login");
+        return modelAndView;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/manage/index", produces = {"application/json;charset=UTF-8"})
+    ModelAndView manageIndex(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("thymeleaf/manage/index");
+        return modelAndView;
+    }
 }
