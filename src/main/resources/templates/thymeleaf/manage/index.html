@@ -3,7 +3,7 @@
 	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 	<meta charset="UTF-8">
-	<title>LarryCMS后台管理</title>
+	<title>CMS后台管理</title>
 	<meta name="renderer" content="webkit">	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
@@ -125,7 +125,7 @@
 					</a>
 					    <dl class="layui-nav-child">
 					    	<dd>
-					    		<a href="javascript:;" data-url="table.html">
+					    		<a th:href="@{/manage/table}">
 					    		   <i class="iconfont icon-yonghu1" data-icon='icon-yonghu1'></i>
 					    		   <span>有线条表格</span>
 					    		</a>
@@ -340,7 +340,7 @@
 				</ul>
 			<div class="layui-tab-content" style="min-height: 150px; ">
 				<div class="layui-tab-item layui-show">
-					<iframe class="larry-iframe" data-id='0' src="main.html"></iframe>
+					<iframe data-id='0' th:include="thymeleaf/manage/table :: html"></iframe>
 				</div>
 			</div>
 		</div>
