@@ -97,7 +97,7 @@
 				</a>
 				<dl class="layui-nav-child">
                     <dd>
-                        <a href="javascript:;" data-url="personInfo.html">
+                        <a href="javascript:;" th:onclick="'javascript:personInfo()'">
                             <i class="iconfont icon-geren1" data-icon='icon-geren1'></i>
                             <span>个人信息</span>
                         </a>
@@ -338,9 +338,9 @@
 				    </dl>
 				  </li>
 				</ul>
-			<div class="layui-tab-content" style="min-height: 150px; ">
-				<div class="layui-tab-item layui-show">
-					<iframe data-id='0' th:include="thymeleaf/manage/table :: html"></iframe>
+			<div class="layui-tab-content J_iframe" style="min-height: 150px; ">
+				<div class="layui-tab-item layui-show ">
+					<iframe data-id='0' th:replace="thymeleaf/manage/table :: html" th:scrolling="yes"></iframe>
 				</div>
 			</div>
 		</div>
@@ -359,6 +359,55 @@
 	<script type="text/javascript" th:src="@{common/layui/layui.js}"></script>
 	<script type="text/javascript" th:src="@{js/larry.js}"></script>
 	<script type="text/javascript" th:src="@{js/index.js}"></script>
+<script type="text/javascript" th:src="@{js/newslist.js}"></script>
+<script>
+	function personInfo() {
+		$('.J_iframe').empty();
+		var html = '';
+		html += '<iframe th:replace="thymeleaf/manage/personInfo :: html" th:scrolling="yes"></iframe>'
+        $('.J_iframe').html(html);
+
+	}
+</script>
+<script type="text/javascript">
+    layui.use(['jquery','layer','element','laypage'],function(){
+        window.jQuery = window.$ = layui.jquery;
+        window.layer = layui.layer;
+        var element = layui.element(),
+            laypage = layui.laypage;
+
+
+        laypage({
+            cont: 'page',
+            pages: 10 //总页数
+            ,
+            groups: 5 //连续显示分页数
+            ,
+            jump: function(obj, first) {
+                //得到了当前页，用于向服务端请求对应数据
+                var curr = obj.curr;
+                if(!first) {
+                    //layer.msg('第 '+ obj.curr +' 页');
+                }
+            }
+        });
+
+        laypage({
+            cont: 'page2',
+            pages: 10 //总页数
+            ,
+            groups: 5 //连续显示分页数
+            ,
+            jump: function(obj, first) {
+                //得到了当前页，用于向服务端请求对应数据
+                var curr = obj.curr;
+                if(!first) {
+                    //layer.msg('第 '+ obj.curr +' 页');
+                }
+            }
+        });
+    });
+</script>
 <!-- 锁屏 -->
 <div class="lock-screen" style="display: none;">
 	<div id="locker" class="lock-wrapper">
