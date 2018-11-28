@@ -43,4 +43,5 @@ public class ManageController {
         modelAndView.setViewName("thymeleaf/manage/main");
         return modelAndView;
     }
+
 }
