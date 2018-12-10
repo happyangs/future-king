@@ -12,11 +12,7 @@ spring:
       cache: false
   datasource:
 
-      type: com.alibaba.druid.pool.DruidDataSource
-      driverClassName: com.mysql.jdbc.Driver
-      password: 4J1ttjoFX!
-      url: jdbc:mysql://192.168.1.113:3306/wms_center_test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull&autoReconnect=true&tinyInt1isBit=false
-      username: newsitetest
+
 
       #连接池配置
       maxActive: 20
