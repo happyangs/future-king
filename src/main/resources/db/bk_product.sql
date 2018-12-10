@@ -7,6 +7,8 @@ CREATE TABLE `bk_product` (
   `show_path` varchar(300) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '首页图片链接',
   `price` decimal(6,2) NOT NULL DEFAULT '0.00' COMMENT '商品价格',
   `html_num` INT(3) NOT NULL DEFAULT 10 COMMENT '页面张数',
+  `link` VARCHAR(200) NOT NULL DEFAULT '' COMMENT '商品存放链接',
+  `link_code` VARCHAR(10) NOT NULL DEFAULT '' COMMENT '提取码',
   `product_desc` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '商品描述',
   `product_synopsis` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '详情简介',
   `remark` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '备注',
