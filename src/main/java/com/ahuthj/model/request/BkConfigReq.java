@@ -1,22 +1,20 @@
-package com.ahuthj.model;
+package com.ahuthj.model.request;
 
 import lombok.Data;
-
-import java.io.Serializable;
-
+import java.util.Date;
 /**
- * @author 
+ *
+ * @author Bryant
+ * @date 2018.12
  */
 @Data
-public class BkConfig implements Serializable {
+public class BkConfigReq {
     private Integer id;
 
     /**
      * 配置项
      */
     private String configType;
-
-    private String configTypeDesc;
 
     /**
      * 配置code
@@ -31,12 +29,12 @@ public class BkConfig implements Serializable {
     /**
      * 添加时间
      */
-    private String addTime;
+    private Date addTime;
 
     /**
      * 更新时间
      */
-    private String updateTime;
+    private Date updateTime;
 
     /**
      * 删除标记

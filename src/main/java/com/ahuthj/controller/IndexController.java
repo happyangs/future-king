@@ -1,15 +1,15 @@
 package com.ahuthj.controller;
 
-import com.ahuthj.common.model.Response;
 import com.ahuthj.common.model.Result;
+import com.ahuthj.enums.ConfigTypeEnum;
 import com.ahuthj.model.BkConfig;
 import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.BkProductPicture;
 import com.ahuthj.model.request.ProductQueryVo;
 import com.ahuthj.service.BkProductPictureService;
 import com.ahuthj.service.BkProductService;
+import com.ahuthj.service.ConfigService;
 import com.ahuthj.util.JsonUtil;
-import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,21 +40,15 @@ public class IndexController {
     @Autowired
     private BkProductPictureService bkProductPictureService;
 
+    @Autowired
+    private ConfigService configService;
+
     @RequestMapping("/index")
     public ModelAndView index(@ModelAttribute ProductQueryVo productQueryVo,
                         HttpServletResponse response,
                         HttpSession session){
         ModelAndView modelAndView = new ModelAndView();
-        List<BkConfig> configList = new ArrayList<>();
-        BkConfig bkConfig = new BkConfig();
-        bkConfig.setConfigType("HTML1");
-        bkConfig.setCode(0);
-        configList.add(bkConfig);
-
-        BkConfig bkConfig1 = new BkConfig();
-        bkConfig1.setConfigType("数据库");
-        bkConfig1.setCode(1);
-        configList.add(bkConfig1);
+        List<BkConfig> configList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_TYPE.getCode());
 
         ProductQueryVo productQuery = new ProductQueryVo();
         productQuery.setPageNum(0);

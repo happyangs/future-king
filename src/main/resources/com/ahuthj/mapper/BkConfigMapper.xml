@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahuthj.mapper.BkConfigMapper">
+  <resultMap id="BaseResultMap" type="com.ahuthj.model.BkConfig">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="config_type" jdbcType="VARCHAR" property="configType" />
+    <result column="code" jdbcType="INTEGER" property="code" />
+    <result column="zh_name" jdbcType="VARCHAR" property="zhName" />
+    <result column="add_time" jdbcType="VARCHAR" property="addTime" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, config_type, code, zh_name, add_time, update_time, is_delete
+  </sql>
+
+  <select id="queryConfig"  parameterType="com.ahuthj.model.BkConfig"  resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+      bk_config a
+    WHERE 1 = 1
+      AND a.`is_delete` = 0
+      <if test="id != null and id != ''">
+        AND a.`id` = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="configType != null and configType != ''">
+        AND a.`config_type` = #{configType,jdbcType=VARCHAR}
+      </if>
+      <if test="code != null and code != ''">
+        AND a.`code` =  #{code,jdbcType=INTEGER}
+      </if>
+  </select>
+</mapper>

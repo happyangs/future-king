@@ -68,7 +68,7 @@
                    <li th:value="0">首页</li>
                 </a>
                 <a href="#" th:each="config : ${configList}">
-                    <li th:value="${config.code}" th:text="${config.configType}"></li>
+                    <li th:value="${config.code}" th:text="${config.zhName}"></li>
                 </a>
             </ul>
         </div>
