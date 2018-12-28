@@ -2,6 +2,7 @@ package com.ahuthj.controller;
 
 import com.ahuthj.common.model.Response;
 import com.ahuthj.common.model.Result;
+import com.ahuthj.model.BkConfig;
 import com.ahuthj.model.BkProduct;
 import com.ahuthj.model.BkProductPicture;
 import com.ahuthj.model.request.ProductQueryVo;
@@ -44,12 +45,24 @@ public class IndexController {
                         HttpServletResponse response,
                         HttpSession session){
         ModelAndView modelAndView = new ModelAndView();
+        List<BkConfig> configList = new ArrayList<>();
+        BkConfig bkConfig = new BkConfig();
+        bkConfig.setConfigType("HTML1");
+        bkConfig.setCode(0);
+        configList.add(bkConfig);
+
+        BkConfig bkConfig1 = new BkConfig();
+        bkConfig1.setConfigType("数据库");
+        bkConfig1.setCode(1);
+        configList.add(bkConfig1);
+
         ProductQueryVo productQuery = new ProductQueryVo();
         productQuery.setPageNum(0);
         productQuery.setPageSize(5);
         Result<BkProduct> bkProductList = bkProductService.pageQuery(productQuery);
         logger.info(JsonUtil.obj2String(bkProductList));
         modelAndView.addObject("bkProductList",bkProductList);
+        modelAndView.addObject("configList",configList);
         modelAndView.setViewName("thymeleaf/index");
         return modelAndView;
     }

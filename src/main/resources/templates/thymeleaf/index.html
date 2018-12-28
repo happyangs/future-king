@@ -65,19 +65,10 @@
         <div class="sub-head-titles clearfix">
             <ul class="J_head">
                 <a href="#" class="active">
-                    <li>首页</li>
+                   <li th:value="0">首页</li>
                 </a>
-                <a href="#" class="">
-                    <li>HTML</li>
-                </a>
-                <a href="#" class="">
-                    <li>JSP</li>
-                </a>
-                <a href="#">
-                    <li>ASP</li>
-                </a>
-                <a href="#" class="">
-                    <li>数据库</li>
+                <a href="#" th:each="config : ${configList}">
+                    <li th:value="${config.code}" th:text="${config.configType}"></li>
                 </a>
             </ul>
         </div>
