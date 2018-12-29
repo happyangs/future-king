@@ -1,5 +1,6 @@
 package com.ahuthj.controller;
 
+import com.ahuthj.common.model.Meta;
 import com.ahuthj.common.model.Result;
 import com.ahuthj.enums.ConfigTypeEnum;
 import com.ahuthj.model.BkConfig;
@@ -52,7 +53,7 @@ public class IndexController {
 
         ProductQueryVo productQuery = new ProductQueryVo();
         productQuery.setPageNum(0);
-        productQuery.setPageSize(5);
+        productQuery.setPageSize(20);
         Result<BkProduct> bkProductList = bkProductService.pageQuery(productQuery);
         logger.info(JsonUtil.obj2String(bkProductList));
         modelAndView.addObject("bkProductList",bkProductList);

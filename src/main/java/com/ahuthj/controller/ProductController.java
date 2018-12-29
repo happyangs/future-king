@@ -45,7 +45,6 @@ public class ProductController {
 
     @RequestMapping(value = "/queryByCondition" ,method = RequestMethod.POST)
     Response queryProduct(@RequestBody ProductQueryVo productQueryVo){
-        logger.info(JsonUtil.obj2String(productQueryVo));
         return Response.buildSuccessResponseWithInfo(bkProductService.pageQuery(productQueryVo));
     }
 }

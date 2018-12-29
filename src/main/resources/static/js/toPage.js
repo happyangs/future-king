@@ -42,17 +42,22 @@ function page_ctrl(data_obj) {
                       var info = data.info.data;
 
                       $.each(info, function (index, content) {
-                          html += '<a class="product-item J_product-item" href="detail/' + content.productId + '" title="查看详细内容" target="_blank">'
-                              + '<img src="' + content.showPath + '"/>'
-                              + ' <div class="product-desc">'
-                              + '  <div class="product-title">' + content.productName + '</div>'
-                              + ' <div class="product-price" style="display: block;">'
-                              + ' <span>¥' + content.price + '</span>'
-                              + ' </div>'
-                              + '  </div>'
-                              + '  </a>'
+                          html +=   '<a class="product-item J_product-item" href="detail/' + content.productId + '" title="查看详细内容" style="text-decoration:none" target="_blank">'
+                                  + '<img src="' + content.showPath + '"/>'
+                                      + '<div class="product-desc">'
+                                          + '<span class="product-id clear">编号:'+content.productId+'</span>'
+                                          + '<span class="product-htmlNum clear">张数:'+content.htmlNum+'</span>'
+                                          + '<div class="Line"></div>'
+                                          + '<div class="product-title">' + content.productName + '</div>'
+                                          + '<div class="product-price" style="display: block;">'
+                                          + '<span>¥' + content.price + '</span>'
+                                          + '</div>'
+                                      + '</div>'
+                                  + '</a>'
                       });
                       $('.J_product-ul').html(html);
+                      totalCount = data.info.meta.count;
+                      init();
                   },
                   error: function (e) {
                       var res = $.parseJSON(e.responseText);
@@ -64,6 +69,18 @@ function page_ctrl(data_obj) {
           change_content();
           showPage();
       }
+
+    function init(totalCount) {
+        var obj_2 = {
+            obj_box: '.page_2',//翻页容器
+            total_item: totalCount,//条目总数
+            per_num: 20,//每页条目数
+            current_page: 1//当前页
+        };
+        /*调用分页方法,初始化数据*/
+        page_ctrl(obj_2);
+    }
+
 
     function showPage() {
         var inp_val=(current_page==total_page)?1:current_page+1;//跳转页数,input默认显示值

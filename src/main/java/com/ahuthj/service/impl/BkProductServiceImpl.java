@@ -51,6 +51,9 @@ public class BkProductServiceImpl implements BkProductService {
         BkProductExample bkProductExample = new BkProductExample();
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
         criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());
+        if (productQueryVo.getProductType() != null){
+            criteria.andProductTypeEqualTo(productQueryVo.getProductType());
+        }
         List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
         //得到分页的结果对象
         PageInfo<BkProduct> pageInfo = new PageInfo<>(list);
