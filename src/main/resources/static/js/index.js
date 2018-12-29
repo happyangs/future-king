@@ -6,9 +6,9 @@ jQuery(document).ready(function($) {
         $(this).siblings('a').removeClass('active');
         $(this).addClass('active');
 
-        var productId = $(this).find("li").val();
+        var productTyppe = $(this).find("li").val();
 
-        queryProduct(productId);
+        queryProduct(productTyppe);
     });
 
     function queryProduct(productType) {

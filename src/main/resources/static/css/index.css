@@ -37,16 +37,17 @@ ol, ul {
     width: 210px;
     height: 210px;
     margin-left: 4%;
+    margin-bottom: 2%;
 }
 .product-desc{
     text-align: center;
 }
 .product-title{
-    font-size: 14px;
+    font-size: 13px;
     color: #011b27;
     width: 180px;
     line-height: 14px;
-    margin: 0 auto;
+    margin: 4px auto;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -54,13 +55,30 @@ ol, ul {
 }
 .product-price{
     line-height: 16px;
-    margin-top: 10px;
+    margin-top: 4px;
     display: block;
     text-decoration : none;
 }
+.product-id{
+    float: left;
+    margin-left: 11px;
+}
+.product-desc span{
+    font-size: 13px;
+    color: brown;
+}
+.product-htmlNum{
+    margin-left: 37%;
+}
+.clear{ clear:both}
 .product-price span{
     font-size: 16px;
     color: #d32833;
+}
+.Line{
+    border-top:1px solid brown;
+    width: 211px;
+    margin-left: 10px;
 }
 .contwo {
     width: 80%;
