@@ -17,17 +17,17 @@ public class ProductQueryVo extends PageReq {
     /**
      * 商品id
      */
-    private int productId;
+    private Integer productId;
 
     /**
      * 商品类型
      */
-    private int productType;
+    private Integer productType;
 
     /**
      * 张数
      */
-    private int htmlNum;
+    private Integer htmlNum;
 
     /**
      * 价格

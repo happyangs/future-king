@@ -42,15 +42,18 @@ function page_ctrl(data_obj) {
                       var info = data.info.data;
 
                       $.each(info, function (index, content) {
-                          html += '<a class="product-item J_product-item" href="detail/' + content.productId + '" title="查看详细内容" target="_blank">'
-                              + '<img src="' + content.showPath + '"/>'
-                              + ' <div class="product-desc">'
-                              + '  <div class="product-title">' + content.productName + '</div>'
-                              + ' <div class="product-price" style="display: block;">'
-                              + ' <span>¥' + content.price + '</span>'
-                              + ' </div>'
-                              + '  </div>'
-                              + '  </a>'
+                          html +=   '<a class="product-item J_product-item" href="detail/' + content.productId + '" title="查看详细内容" style="text-decoration:none" target="_blank">'
+                                  + '<img src="' + content.showPath + '"/>'
+                                      + '<div class="product-desc">'
+                                          + '<span class="product-id clear">编号:'+content.productId+'</span>'
+                                          + '<span class="product-htmlNum clear">张数:'+content.htmlNum+'</span>'
+                                          + '<div class="Line"></div>'
+                                          + '<div class="product-title">' + content.productName + '</div>'
+                                          + '<div class="product-price" style="display: block;">'
+                                          + '<span>¥' + content.price + '</span>'
+                                          + '</div>'
+                                      + '</div>'
+                                  + '</a>'
                       });
                       $('.J_product-ul').html(html);
                   },
