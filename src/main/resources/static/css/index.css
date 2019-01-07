@@ -19,7 +19,7 @@ ol, ul {
 }
 .product-list-condition{
     height: 30px;
-    line-height: 30px;
+    margin-top: 6px;
 }
 .product-ul{
     width: 100%;
@@ -223,7 +223,8 @@ h5 {
 
 .ul-ul li {
     float: left;
-    width: 6%;;
+    width: 8%;
+    font-size: 10px;
 }
 
 .ul-ul li a {

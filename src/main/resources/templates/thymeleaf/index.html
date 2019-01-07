@@ -51,7 +51,30 @@
             width: 220px;
             height: 62px;
         }
-
+        .product-list-content{
+            margin-top: 11px;
+        }
+        .first-condition{
+            margin-right: -21px;
+            padding-top: 3px;
+        }
+        .codition{
+            border: 1px solid #2b2b2b ;
+            text-align: center;
+            border-radius: 4px;
+            margin-left: 10px;
+            height: 27px;
+            padding-top: 3px;
+            cursor: default;
+        }
+        .active{
+            border: 1px solid #d32833 ;
+            color: white;
+            background-color:#d32833;
+        }
+        .product-list{
+            margin-top: 7px;
+        }
     </style>
 </head>
 <body>
@@ -78,36 +101,50 @@
 <div class="marketwrap clearfix">
     <div class="product-list-wrap">
         <div class="product-list-inner">
+            <input hidden class="J_productType" th:value="0"/>
+            <input hidden class="J_htmlNum" th:value="0"/>
+            <input hidden class="J_productPrice" th:value="0"/>
+            <input hidden class="J_productTheme" th:value="0"/>
             <div class="product-list-content">
                 <div class="product-list-condition clearfix">
-                      <ul class="ul-ul">
-                           <li th:text="@{张数：}"></li>
-                           <li><a>全部</a></li>
-                           <li><a>10</a></li>
-                           <li><a>20</a></li>
-                           <li><a>30</a></li>
-                           <li><a>其他</a></li>
-                       </ul>
+                    <ul class="J_product_type ul-ul">
+                        <li class="first-condition" th:text="@{类型：}"></li>
+                        <li class="codition active" th:value="0">全部</li>
+                        <li class="codition" th:value="1">html/css</li>
+                        <li class="codition" th:value="2">web</li>
+                        <li class="codition" th:value="3">python</li>
+                        <li class="codition" th:value="4">JavaScript</li>
+                    </ul>
                 </div>
                 <div class="product-list-condition clearfix">
-                        <ul class="ul-ul">
-                            <li th:text="@{价格：}"></li>
-                            <li><a>全部</a></li>
-                            <li><a>20</a></li>
-                            <li><a>30</a></li>
-                            <li><a>50</a></li>
-                            <li><a>其他</a></li>
+                  <ul class="J_html_num ul-ul">
+                       <li class="first-condition" th:text="@{张数：}"></li>
+                       <li class="codition active" th:value="0">全部</li>
+                       <li class="codition" th:value="10">10</li>
+                       <li class="codition" th:value="20">20</li>
+                       <li class="codition" th:value="30">30</li>
+                       <li class="codition" th:value="1">其他</li>
+                   </ul>
+                </div>
+                <div class="product-list-condition clearfix">
+                        <ul class="J_price ul-ul">
+                            <li class="first-condition" th:text="@{价格：}"></li>
+                            <li class="codition active" th:value="0">全部</li>
+                            <li class="codition" th:value="20">20</li>
+                            <li class="codition" th:value="30">30</li>
+                            <li class="codition" th:value="50">50</li>
+                            <li class="codition" th:value="1">其他</li>
                         </ul>
                 </div>
 
                 <div class="product-list-condition clearfix">
-                    <ul class="ul-ul">
-                        <li th:text="@{题材：}"></li>
-                        <li><a>全部</a></li>
-                        <li><a>体育</a></li>
-                        <li><a>明星</a></li>
-                        <li><a>电影</a></li>
-                        <li><a>其他</a></li>
+                    <ul class="J_theme ul-ul">
+                        <li class="first-condition" th:text="@{题材：}"></li>
+                        <li class="codition active" th:value="0">全部</li>
+                        <li class="codition" th:value="1">体育</li>
+                        <li class="codition" th:value="2">明星</li>
+                        <li class="codition" th:value="3">电影</li>
+                        <li class="codition" th:value="4">其他</li>
                     </ul>
                 </div>
                 <div class="J_product-list product-list m-content clearfix">

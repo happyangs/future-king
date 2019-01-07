@@ -33,4 +33,6 @@ public class ProductQueryVo extends PageReq {
      * 价格
      */
     private BigDecimal price;
+
+    private String theme;
 }
