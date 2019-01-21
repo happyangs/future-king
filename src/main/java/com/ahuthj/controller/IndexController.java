@@ -51,7 +51,7 @@ public class IndexController {
         List<BkConfig> productThemeList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_THEME.getCode());
         ProductQueryVo productQuery = new ProductQueryVo();
         productQuery.setPageNum(0);
-        productQuery.setPageSize(20);
+        productQuery.setPageSize(15);
         Result<BkProduct> bkProductList = bkProductService.pageQuery(productQuery);
         logger.info(JsonUtil.obj2String(bkProductList));
         modelAndView.addObject("bkProductList",bkProductList);

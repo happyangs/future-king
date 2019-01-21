@@ -90,6 +90,7 @@ public class BkProductServiceImpl implements BkProductService {
         List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
         //得到分页的结果对象
         PageInfo<BkProduct> pageInfo = new PageInfo<>(list);
+
         //得到分页中的person条目对象
         List<BkProduct> responseList = pageInfo.getList();
         Long total = pageInfo.getTotal();

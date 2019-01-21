@@ -2,7 +2,7 @@ function page_ctrl(data_obj) {
       var obj_box=(data_obj.obj_box!== undefined) ? data_obj.obj_box:function () {
         return;
       };
-
+      $(obj_box).html("");
       //翻页容器dom对象,必要参数
       var total_item = (data_obj.total_item!== undefined) ? parseInt(data_obj.total_item) : 0;//数据条目总数,默认为0,组件将不加载
       var per_num = (data_obj.per_num!== undefined) ? parseInt(data_obj.per_num) : 10;//每页显示条数,默认为10条
@@ -12,6 +12,7 @@ function page_ctrl(data_obj) {
         return;
       }
       //在指定容器内加载分页数据
+
       $(obj_box).append('<div class="page_ctrl"></div>');
       showPage();
     $(document).ready(function () {

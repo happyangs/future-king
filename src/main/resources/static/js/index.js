@@ -1,6 +1,8 @@
 jQuery(document).ready(function($) {
 
-    var page_size = 20;
+    page(totalCount);
+
+    var page_size = 15;
     var page_num = 0;
     $(".J_head a").click(function() {
         $(this).siblings('a').removeClass('active');
@@ -62,7 +64,7 @@ jQuery(document).ready(function($) {
                 $('.J_product-ul').empty();
                 var html = '';
                 var info = data.info.data;
-
+                var totalCount = data.info.meta.count
                 $.each(info, function (index, content) {
                     html +=   '<a class="product-item J_product-item" href="detail/' + content.productId + '" title="查看详细内容" style="text-decoration:none" target="_blank">'
                         + '<img src="' + content.showPath + '"/>'
@@ -78,6 +80,7 @@ jQuery(document).ready(function($) {
                         + '</a>'
                 });
                 $('.J_product-ul').html(html);
+                page(totalCount);
             },
             error: function (e) {
                 var res = $.parseJSON(e.responseText);
@@ -136,5 +139,17 @@ jQuery(document).ready(function($) {
         var priceType = $('.J_productPrice').val();
         var productTheme = $('.J_productTheme').val();
         queryProduct(productType,htmlNumType,priceType,productTheme);
+    }
+
+    function page(totalCount) {
+        /*容器2参数*/
+        var obj_2 = {
+            obj_box: '.page_2',//翻页容器
+            total_item: totalCount,//条目总数
+            per_num: 15,//每页条目数
+            current_page: 1//当前页
+        };
+        /*调用分页方法,初始化数据*/
+        page_ctrl(obj_2);
     }
 });
