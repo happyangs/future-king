@@ -9,6 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ConfigTypeEnum {
     PRODUCT_TYPE("ProductType","作品类型"),
+    PRODUCT_THEME("ProductTheme","作品主题"),
     PICTURE_TYPE("PictureType","图片类型"),
     PRODUCT_SIZE("PictureSize","图片尺寸");
 

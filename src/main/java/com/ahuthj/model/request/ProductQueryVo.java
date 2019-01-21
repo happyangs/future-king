@@ -25,14 +25,27 @@ public class ProductQueryVo extends PageReq {
     private Integer productType;
 
     /**
-     * 张数
+     * 最大张数
      */
-    private Integer htmlNum;
+    private Integer maxHtmlNum;
 
     /**
-     * 价格
+     * 最小张数
      */
-    private BigDecimal price;
+    private Integer minHtmlNum;
 
-    private String theme;
+    /**
+     * 最高价格
+     */
+    private BigDecimal maxPrice;
+
+    /**
+     * 最低价格
+     */
+    private BigDecimal minPrice;
+
+    /**
+     * 主题
+     */
+    private Integer productTheme;
 }

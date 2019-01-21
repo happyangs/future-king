@@ -85,7 +85,7 @@
                 <img th:src="@{http://m.tuniucdn.com/fb2/t1/G1/M00/56/FB/Cii-U1iFwCGIEUG7AAAYZaB7MGYAAHIbQPmRh8AABh9216.png}">
             </a>
         </div>
-        <div class="sub-head-titles clearfix">
+      <!--  <div class="sub-head-titles clearfix">
             <ul class="J_head">
                 <a href="#" class="active">
                    <li th:value="0">首页</li>
@@ -94,7 +94,7 @@
                     <li th:value="${config.code}" th:text="${config.zhName}"></li>
                 </a>
             </ul>
-        </div>
+        </div>-->
     </div>
 </div>
 
@@ -110,30 +110,28 @@
                     <ul class="J_product_type ul-ul">
                         <li class="first-condition" th:text="@{类型：}"></li>
                         <li class="codition active" th:value="0">全部</li>
-                        <li class="codition" th:value="1">html/css</li>
-                        <li class="codition" th:value="2">web</li>
-                        <li class="codition" th:value="3">python</li>
-                        <li class="codition" th:value="4">JavaScript</li>
+                        <li th:each="config:${productTypeList}" class="codition" th:text="${config.zhName}" th:value="${config.code}"></li>
+                        <li class="codition" th:value="-1">其他</li>
                     </ul>
                 </div>
                 <div class="product-list-condition clearfix">
                   <ul class="J_html_num ul-ul">
                        <li class="first-condition" th:text="@{张数：}"></li>
                        <li class="codition active" th:value="0">全部</li>
-                       <li class="codition" th:value="10">10</li>
-                       <li class="codition" th:value="20">20</li>
-                       <li class="codition" th:value="30">30</li>
-                       <li class="codition" th:value="1">其他</li>
+                       <li class="codition" th:value="1">10-20页</li>
+                       <li class="codition" th:value="2">20-30页</li>
+                       <li class="codition" th:value="3">30-40页</li>
+                       <li class="codition" th:value="-1">其他</li>
                    </ul>
                 </div>
                 <div class="product-list-condition clearfix">
                         <ul class="J_price ul-ul">
                             <li class="first-condition" th:text="@{价格：}"></li>
                             <li class="codition active" th:value="0">全部</li>
-                            <li class="codition" th:value="20">20</li>
-                            <li class="codition" th:value="30">30</li>
-                            <li class="codition" th:value="50">50</li>
-                            <li class="codition" th:value="1">其他</li>
+                            <li class="codition" th:value="1">¥0-30</li>
+                            <li class="codition" th:value="2">¥30-50</li>
+                            <li class="codition" th:value="3">¥50-100</li>
+                            <li class="codition" th:value="-1">其他</li>
                         </ul>
                 </div>
 
@@ -141,10 +139,7 @@
                     <ul class="J_theme ul-ul">
                         <li class="first-condition" th:text="@{题材：}"></li>
                         <li class="codition active" th:value="0">全部</li>
-                        <li class="codition" th:value="1">体育</li>
-                        <li class="codition" th:value="2">明星</li>
-                        <li class="codition" th:value="3">电影</li>
-                        <li class="codition" th:value="4">其他</li>
+                        <li th:each="config:${productThemeList}" class="codition" th:text="${config.zhName}" th:value="${config.code}"></li>
                     </ul>
                 </div>
                 <div class="J_product-list product-list m-content clearfix">

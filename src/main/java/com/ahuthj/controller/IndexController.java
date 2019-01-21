@@ -45,19 +45,18 @@ public class IndexController {
     private ConfigService configService;
 
     @RequestMapping("/index")
-    public ModelAndView index(@ModelAttribute ProductQueryVo productQueryVo,
-                        HttpServletResponse response,
-                        HttpSession session){
+    public ModelAndView index(@ModelAttribute ProductQueryVo productQueryVo){
         ModelAndView modelAndView = new ModelAndView();
-        List<BkConfig> configList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_TYPE.getCode());
-
+        List<BkConfig> productTypeList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_TYPE.getCode());
+        List<BkConfig> productThemeList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_THEME.getCode());
         ProductQueryVo productQuery = new ProductQueryVo();
         productQuery.setPageNum(0);
         productQuery.setPageSize(20);
         Result<BkProduct> bkProductList = bkProductService.pageQuery(productQuery);
         logger.info(JsonUtil.obj2String(bkProductList));
         modelAndView.addObject("bkProductList",bkProductList);
-        modelAndView.addObject("configList",configList);
+        modelAndView.addObject("productTypeList",productTypeList);
+        modelAndView.addObject("productThemeList",productThemeList);
         modelAndView.setViewName("thymeleaf/index");
         return modelAndView;
     }

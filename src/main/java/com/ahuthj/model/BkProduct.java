@@ -21,6 +21,11 @@ public class BkProduct implements Serializable {
     private Integer productType;
 
     /**
+     * 主题
+     */
+    private String productTheme;
+
+    /**
      * 商品名称
      */
     private String productName;
@@ -39,6 +44,16 @@ public class BkProduct implements Serializable {
      * 页面张数
      */
     private Integer htmlNum;
+
+    /**
+     * 商品存放链接
+     */
+    private String link;
+
+    /**
+     * 提取码
+     */
+    private String linkCode;
 
     /**
      * 商品描述
@@ -96,6 +111,14 @@ public class BkProduct implements Serializable {
         this.productType = productType;
     }
 
+    public String getProductTheme() {
+        return productTheme;
+    }
+
+    public void setProductTheme(String productTheme) {
+        this.productTheme = productTheme;
+    }
+
     public String getProductName() {
         return productName;
     }
@@ -126,6 +149,22 @@ public class BkProduct implements Serializable {
 
     public void setHtmlNum(Integer htmlNum) {
         this.htmlNum = htmlNum;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getLinkCode() {
+        return linkCode;
+    }
+
+    public void setLinkCode(String linkCode) {
+        this.linkCode = linkCode;
     }
 
     public String getProductDesc() {
@@ -191,10 +230,13 @@ public class BkProduct implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getProductId() == null ? other.getProductId() == null : this.getProductId().equals(other.getProductId()))
             && (this.getProductType() == null ? other.getProductType() == null : this.getProductType().equals(other.getProductType()))
+            && (this.getProductTheme() == null ? other.getProductTheme() == null : this.getProductTheme().equals(other.getProductTheme()))
             && (this.getProductName() == null ? other.getProductName() == null : this.getProductName().equals(other.getProductName()))
             && (this.getShowPath() == null ? other.getShowPath() == null : this.getShowPath().equals(other.getShowPath()))
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
             && (this.getHtmlNum() == null ? other.getHtmlNum() == null : this.getHtmlNum().equals(other.getHtmlNum()))
+            && (this.getLink() == null ? other.getLink() == null : this.getLink().equals(other.getLink()))
+            && (this.getLinkCode() == null ? other.getLinkCode() == null : this.getLinkCode().equals(other.getLinkCode()))
             && (this.getProductDesc() == null ? other.getProductDesc() == null : this.getProductDesc().equals(other.getProductDesc()))
             && (this.getProductSynopsis() == null ? other.getProductSynopsis() == null : this.getProductSynopsis().equals(other.getProductSynopsis()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
@@ -210,10 +252,13 @@ public class BkProduct implements Serializable {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getProductId() == null) ? 0 : getProductId().hashCode());
         result = prime * result + ((getProductType() == null) ? 0 : getProductType().hashCode());
+        result = prime * result + ((getProductTheme() == null) ? 0 : getProductTheme().hashCode());
         result = prime * result + ((getProductName() == null) ? 0 : getProductName().hashCode());
         result = prime * result + ((getShowPath() == null) ? 0 : getShowPath().hashCode());
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
         result = prime * result + ((getHtmlNum() == null) ? 0 : getHtmlNum().hashCode());
+        result = prime * result + ((getLink() == null) ? 0 : getLink().hashCode());
+        result = prime * result + ((getLinkCode() == null) ? 0 : getLinkCode().hashCode());
         result = prime * result + ((getProductDesc() == null) ? 0 : getProductDesc().hashCode());
         result = prime * result + ((getProductSynopsis() == null) ? 0 : getProductSynopsis().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
@@ -232,10 +277,13 @@ public class BkProduct implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", productId=").append(productId);
         sb.append(", productType=").append(productType);
+        sb.append(", productTheme=").append(productTheme);
         sb.append(", productName=").append(productName);
         sb.append(", showPath=").append(showPath);
         sb.append(", price=").append(price);
         sb.append(", htmlNum=").append(htmlNum);
+        sb.append(", link=").append(link);
+        sb.append(", linkCode=").append(linkCode);
         sb.append(", productDesc=").append(productDesc);
         sb.append(", productSynopsis=").append(productSynopsis);
         sb.append(", remark=").append(remark);

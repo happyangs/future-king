@@ -5,10 +5,13 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
     <result column="product_type" jdbcType="INTEGER" property="productType" />
+    <result column="product_theme" jdbcType="VARCHAR" property="productTheme" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
     <result column="show_path" jdbcType="VARCHAR" property="showPath" />
     <result column="price" jdbcType="DECIMAL" property="price" />
     <result column="html_num" jdbcType="INTEGER" property="htmlNum" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
+    <result column="link_code" jdbcType="VARCHAR" property="linkCode" />
     <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
     <result column="product_synopsis" jdbcType="VARCHAR" property="productSynopsis" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
@@ -75,8 +78,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, product_id, product_type, product_name, show_path, price, html_num, product_desc,
-    product_synopsis, remark, add_time, update_time, is_delete
+    id, product_id, product_type, product_theme, product_name, show_path, price, html_num,
+    link, link_code, product_desc, product_synopsis, remark, add_time, update_time, is_delete
   </sql>
   <select id="selectByExample" parameterType="com.ahuthj.model.BkProductExample" resultMap="BaseResultMap">
     select
@@ -118,13 +121,15 @@
   </delete>
   <insert id="insert" parameterType="com.ahuthj.model.BkProduct">
     insert into bk_product (id, product_id, product_type,
-    product_name, show_path, price,
-    html_num, product_desc, product_synopsis,
+    product_theme, product_name, show_path,
+    price, html_num, link,
+    link_code, product_desc, product_synopsis,
     remark, add_time, update_time,
     is_delete)
     values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{productType,jdbcType=INTEGER},
-    #{productName,jdbcType=VARCHAR}, #{showPath,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
-    #{htmlNum,jdbcType=INTEGER}, #{productDesc,jdbcType=VARCHAR}, #{productSynopsis,jdbcType=VARCHAR},
+    #{productTheme,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{showPath,jdbcType=VARCHAR},
+    #{price,jdbcType=DECIMAL}, #{htmlNum,jdbcType=INTEGER}, #{link,jdbcType=VARCHAR},
+    #{linkCode,jdbcType=VARCHAR}, #{productDesc,jdbcType=VARCHAR}, #{productSynopsis,jdbcType=VARCHAR},
     #{remark,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
     #{isDelete,jdbcType=INTEGER})
   </insert>
@@ -140,6 +145,9 @@
       <if test="productType != null">
         product_type,
       </if>
+      <if test="productTheme != null">
+        product_theme,
+      </if>
       <if test="productName != null">
         product_name,
       </if>
@@ -151,6 +159,12 @@
       </if>
       <if test="htmlNum != null">
         html_num,
+      </if>
+      <if test="link != null">
+        link,
+      </if>
+      <if test="linkCode != null">
+        link_code,
       </if>
       <if test="productDesc != null">
         product_desc,
@@ -181,6 +195,9 @@
       <if test="productType != null">
         #{productType,jdbcType=INTEGER},
       </if>
+      <if test="productTheme != null">
+        #{productTheme,jdbcType=VARCHAR},
+      </if>
       <if test="productName != null">
         #{productName,jdbcType=VARCHAR},
       </if>
@@ -192,6 +209,12 @@
       </if>
       <if test="htmlNum != null">
         #{htmlNum,jdbcType=INTEGER},
+      </if>
+      <if test="link != null">
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="linkCode != null">
+        #{linkCode,jdbcType=VARCHAR},
       </if>
       <if test="productDesc != null">
         #{productDesc,jdbcType=VARCHAR},
@@ -231,6 +254,9 @@
       <if test="record.productType != null">
         product_type = #{record.productType,jdbcType=INTEGER},
       </if>
+      <if test="record.productTheme != null">
+        product_theme = #{record.productTheme,jdbcType=VARCHAR},
+      </if>
       <if test="record.productName != null">
         product_name = #{record.productName,jdbcType=VARCHAR},
       </if>
@@ -242,6 +268,12 @@
       </if>
       <if test="record.htmlNum != null">
         html_num = #{record.htmlNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.link != null">
+        link = #{record.link,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkCode != null">
+        link_code = #{record.linkCode,jdbcType=VARCHAR},
       </if>
       <if test="record.productDesc != null">
         product_desc = #{record.productDesc,jdbcType=VARCHAR},
@@ -271,10 +303,13 @@
     set id = #{record.id,jdbcType=INTEGER},
     product_id = #{record.productId,jdbcType=INTEGER},
     product_type = #{record.productType,jdbcType=INTEGER},
+    product_theme = #{record.productTheme,jdbcType=VARCHAR},
     product_name = #{record.productName,jdbcType=VARCHAR},
     show_path = #{record.showPath,jdbcType=VARCHAR},
     price = #{record.price,jdbcType=DECIMAL},
     html_num = #{record.htmlNum,jdbcType=INTEGER},
+    link = #{record.link,jdbcType=VARCHAR},
+    link_code = #{record.linkCode,jdbcType=VARCHAR},
     product_desc = #{record.productDesc,jdbcType=VARCHAR},
     product_synopsis = #{record.productSynopsis,jdbcType=VARCHAR},
     remark = #{record.remark,jdbcType=VARCHAR},
@@ -294,6 +329,9 @@
       <if test="productType != null">
         product_type = #{productType,jdbcType=INTEGER},
       </if>
+      <if test="productTheme != null">
+        product_theme = #{productTheme,jdbcType=VARCHAR},
+      </if>
       <if test="productName != null">
         product_name = #{productName,jdbcType=VARCHAR},
       </if>
@@ -305,6 +343,12 @@
       </if>
       <if test="htmlNum != null">
         html_num = #{htmlNum,jdbcType=INTEGER},
+      </if>
+      <if test="link != null">
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="linkCode != null">
+        link_code = #{linkCode,jdbcType=VARCHAR},
       </if>
       <if test="productDesc != null">
         product_desc = #{productDesc,jdbcType=VARCHAR},
@@ -330,17 +374,20 @@
   <update id="updateByPrimaryKey" parameterType="com.ahuthj.model.BkProduct">
     update bk_product
     set product_id = #{productId,jdbcType=INTEGER},
-    product_type = #{productType,jdbcType=INTEGER},
-    product_name = #{productName,jdbcType=VARCHAR},
-    show_path = #{showPath,jdbcType=VARCHAR},
-    price = #{price,jdbcType=DECIMAL},
-    html_num = #{htmlNum,jdbcType=INTEGER},
-    product_desc = #{productDesc,jdbcType=VARCHAR},
-    product_synopsis = #{productSynopsis,jdbcType=VARCHAR},
-    remark = #{remark,jdbcType=VARCHAR},
-    add_time = #{addTime,jdbcType=TIMESTAMP},
-    update_time = #{updateTime,jdbcType=TIMESTAMP},
-    is_delete = #{isDelete,jdbcType=INTEGER}
+      product_type = #{productType,jdbcType=INTEGER},
+      product_theme = #{productTheme,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      show_path = #{showPath,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      html_num = #{htmlNum,jdbcType=INTEGER},
+      link = #{link,jdbcType=VARCHAR},
+      link_code = #{linkCode,jdbcType=VARCHAR},
+      product_desc = #{productDesc,jdbcType=VARCHAR},
+      product_synopsis = #{productSynopsis,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
