@@ -15,7 +15,7 @@ CREATE TABLE `bk_product_picture` (
   KEY `idx_update_time` (`update_time`) USING BTREE COMMENT '更新时间索引'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='商品图片';
 
-INSERT INTO bk_product_picture(product_id,picture_type,picture_path) VALUES (1001,3,'http://m.tuniucdn.com/fb2/t1/G2/M00/C0/33/Cii-Tlh3JjCIIrMtAALHIDfYXmwAAGr8wOk8x8AAsc4488.png');
+INSERT INTO bk_product_picture(product_id,picture_type,picture_path) VALUES (1001,1,'https://s2.ax1x.com/2019/01/23/kEpk59.png');
 INSERT INTO bk_product_picture(product_id,picture_type,picture_path) VALUES (1002,3,'http://m.tuniucdn.com/fb2/t1/G5/M00/E6/78/Cii-slt9Oo-IQMf_AAIfKdXQ55UAAMfBgDg02wAAh9B121.jpg');
 INSERT INTO bk_product_picture(product_id,picture_type,picture_path) VALUES (1003,3,'http://m.tuniucdn.com/fb2/t1/G5/M00/85/82/Cii-slqiV-CIHQjJAAD8yJ4nLtIAAEDVQBM-xMAAPzg656.jpg');
 INSERT INTO bk_product_picture(product_id,picture_type,picture_path) VALUES (1004,3,'http://m.tuniucdn.com/fb2/t1/G5/M00/58/22/Cii-slszozaIcoxFAAXQI_1e-28AAJO-wP26K0ABdA7130.jpg');

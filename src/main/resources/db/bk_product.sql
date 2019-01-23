@@ -24,7 +24,7 @@ CREATE TABLE `bk_product` (
   KEY `idx_update_time` (`update_time`) USING BTREE COMMENT '更新时间索引'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='商品表';
 
-INSERT INTO bk_product (product_id,product_theme,product_name,show_path,price,product_desc,product_synopsis) VALUES (1001,'明星','亮黑手机壳01','http://m.tuniucdn.com/fb2/t1/G2/M00/C0/33/Cii-Tlh3JjCIIrMtAALHIDfYXmwAAGr8wOk8x8AAsc4488.png','10.01','[体育]适用于iphoneX','东南亚风格的家居物品多用实木、竹、藤、麻等材料打造,这些材质会使居室显得自然古朴，彷佛沐浴着阳光雨露般舒畅');
+INSERT INTO bk_product (product_id,product_theme,product_name,show_path,price,product_desc,product_synopsis) VALUES (1001,'明星','父亲节','https://s2.ax1x.com/2019/01/23/kA4WMq.png','10.01','[体育]适用于iphoneX','东南亚风格的家居物品多用实木、竹、藤、麻等材料打造,这些材质会使居室显得自然古朴，彷佛沐浴着阳光雨露般舒畅');
 INSERT INTO bk_product (product_id,product_theme,product_name,show_path,price,product_desc,product_synopsis) VALUES (1002,'明星','亮黑手机壳02','http://m.tuniucdn.com/fb2/t1/G5/M00/E6/78/Cii-slt9Oo-IQMf_AAIfKdXQ55UAAMfBgDg02wAAh9B121.jpg','20.02','[体育]适用于iphoneX','东南亚风格的家居物品多用实木、竹、藤、麻等材料打造,这些材质会使居室显得自然古朴，彷佛沐浴着阳光雨露般舒畅');
 INSERT INTO bk_product (product_id,product_theme,product_name,show_path,price,product_desc,product_synopsis) VALUES (1003,'明星','亮黑手机壳03','http://m.tuniucdn.com/fb2/t1/G5/M00/85/82/Cii-slqiV-CIHQjJAAD8yJ4nLtIAAEDVQBM-xMAAPzg656.jpg','30.03','[体育]适用于iphoneX','东南亚风格的家居物品多用实木、竹、藤、麻等材料打造,这些材质会使居室显得自然古朴，彷佛沐浴着阳光雨露般舒畅');
 INSERT INTO bk_product (product_id,product_theme,product_name,show_path,price,product_desc,product_synopsis) VALUES (1004,'明星','亮黑手机壳04','http://m.tuniucdn.com/fb2/t1/G5/M00/58/22/Cii-slszozaIcoxFAAXQI_1e-28AAJO-wP26K0ABdA7130.jpg','40.04','[体育]适用于iphoneX','东南亚风格的家居物品多用实木、竹、藤、麻等材料打造,这些材质会使居室显得自然古朴，彷佛沐浴着阳光雨露般舒畅');
