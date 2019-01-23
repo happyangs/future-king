@@ -95,3 +95,7 @@ a{color:#000;text-decoration:none}a:hover{color:#884400;text-decoration:underlin
     font-size: 15px;
     color: #db343f;
 }
+.big-pic{
+    width: 560px;
+    height: 420px;
+}

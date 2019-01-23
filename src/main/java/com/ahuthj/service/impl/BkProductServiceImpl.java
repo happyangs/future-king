@@ -87,7 +87,7 @@ public class BkProductServiceImpl implements BkProductService {
         if (productQueryVo.getMinHtmlNum() != null){
             criteria.andHtmlNumGreaterThanOrEqualTo(productQueryVo.getMinHtmlNum());
         }
-        bkProductExample.setOrderByClause(" price desc");
+        bkProductExample.setOrderByClause(" price asc");
         PageHelper.startPage(pageNum , pageSize,true);
         List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
         //得到分页的结果对象

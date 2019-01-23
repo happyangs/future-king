@@ -13,9 +13,7 @@
     <ul class="ulBigPic">
         <li class="liSelected" th:each="picture : ${pictureList}" >
 			<span class="sPic">
-				<i class="iBigPic"><a href="http://www.17sucai.com/" target="_blank" >
-                    <img width="560" height="420" th:src="@{${picture.picturePath}}" /></a>
-                </i>
+                <img class="big-pic" th:src="@{${picture.picturePath}}" /></a>
             </span>
             <div class="sSideBox">
 				<span class="product-title" th:text="'['+${product.productTheme}+']'+${product.productDesc}"></span>
@@ -29,7 +27,7 @@
 			</div>
                 <div class="detail-sj">售价:</div>
                 <div class="detail-price" th:text="'¥'+${product.price}"></div>
-                <div class="purchase_btns J_Order" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</div>
+                <button onclick="window.location.href = 'https://www.baidu.com/'" class="purchase_btns" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</button>
         </li>
     </ul>
     <div class="dSmallPicBox">
