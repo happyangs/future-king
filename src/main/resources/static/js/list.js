@@ -286,4 +286,9 @@
 	numInit("init");
 	btnAInit();
 	btnBInitA();
-	smallPicSelected();	
+	smallPicSelected();
+
+
+	$('.J_Order').click(function () {
+        window.location.href="www.baidu.com";
+    });

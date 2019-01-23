@@ -9,73 +9,12 @@
     <script th:src="@{js/common/jquery.fullPage.min.js}"></script>
     <script th:src="@{js/index.js}"></script>
     <script th:src="@{js/common/jquery-3.2.1.min.js}"></script>
-    <script th:src="@{js/toPage.js}"></script>
 
     <link rel="stylesheet" th:href="@{css/common/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{css/index.css}"/>
     <link rel="stylesheet" th:href="@{css/toPage.css}"/>
 
-    <style>
-        .header_top{
-            width: 100%;
-            height: 120px;
-            background: #fff;
-        }
-        .header_top .sub-head-inner{
-            width: 1190px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .sub-head-titles {
-            margin-left: 290px;
-        }
-        .sub-head-titles ul .active li {
-            color: #d32833 !important;
-            border-bottom: 2px solid #d32833;
-        }
-        .sub-head-titles ul a li {
-            float: left;
-            font-size: 14px;
-            color: #333;
-            margin: 36px 34px 36px 0;
-            font-family: '微软雅黑';
-            padding: 8px 0;
-            cursor: pointer;
-        }
 
-        .sub-head-inner .market-logo {
-            margin: 25px 0;
-            float: left;
-        }
-        .sub-head-inner .market-logo img {
-            width: 220px;
-            height: 62px;
-        }
-        .product-list-content{
-            margin-top: 11px;
-        }
-        .first-condition{
-            margin-right: -21px;
-            padding-top: 3px;
-        }
-        .codition{
-            border: 1px solid #2b2b2b ;
-            text-align: center;
-            border-radius: 4px;
-            margin-left: 10px;
-            height: 27px;
-            padding-top: 3px;
-            cursor: default;
-        }
-        .active{
-            border: 1px solid #d32833 ;
-            color: white;
-            background-color:#d32833;
-        }
-        .product-list{
-            margin-top: 7px;
-        }
-    </style>
 </head>
 <body>
 <div class="header_top">
@@ -105,6 +44,7 @@
             <input hidden class="J_htmlNum" th:value="0"/>
             <input hidden class="J_productPrice" th:value="0"/>
             <input hidden class="J_productTheme" th:value="0"/>
+            <input hidden class="J_totalCount" th:value="${bkProductList.meta.count}"/>
             <div class="product-list-content">
                 <div class="product-list-condition clearfix">
                     <ul class="J_product_type ul-ul">
@@ -165,14 +105,5 @@
 </div>
 <div class="page_2"></div>
 </body>
-
-<script th:inline="javascript">
-    /* 页面取值*/
-    var totalCount = [[${bkProductList.meta.count}]];
-
-</script>
-<script>
-
-</script>
 </html>
 

@@ -18,7 +18,7 @@
                 </i>
             </span>
             <div class="sSideBox">
-				<span class="product-title" th:text="${product.productDesc}"></span>
+				<span class="product-title" th:text="'['+${product.productTheme}+']'+${product.productDesc}"></span>
 				<span class="sIntro" th:text="'作品简介：'+${product.productSynopsis}"></span>
                 <span class="detail-cl">我们承诺：</span>
                 <span class="detail-cl">【承诺1】功能完整 代码简洁！</span>
@@ -29,7 +29,7 @@
 			</div>
                 <div class="detail-sj">售价:</div>
                 <div class="detail-price" th:text="'¥'+${product.price}"></div>
-                <div class="purchase_btns" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</div>
+                <div class="purchase_btns J_Order" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</div>
         </li>
     </ul>
     <div class="dSmallPicBox">

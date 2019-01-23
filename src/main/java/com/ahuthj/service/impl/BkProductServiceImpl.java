@@ -60,7 +60,7 @@ public class BkProductServiceImpl implements BkProductService {
     public Result<BkProduct> pageQuery(ProductQueryVo productQueryVo) {
         int pageNum = productQueryVo.getPageNum();
         int pageSize = productQueryVo.getPageSize();
-        PageHelper.startPage(pageNum , pageSize);
+
         BkProductExample bkProductExample = new BkProductExample();
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
         criteria.andIsDeleteEqualTo(IsDeleteEnum.NOT_DELETE.getCode());
@@ -87,6 +87,8 @@ public class BkProductServiceImpl implements BkProductService {
         if (productQueryVo.getMinHtmlNum() != null){
             criteria.andHtmlNumGreaterThanOrEqualTo(productQueryVo.getMinHtmlNum());
         }
+        bkProductExample.setOrderByClause(" price desc");
+        PageHelper.startPage(pageNum , pageSize,true);
         List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
         //得到分页的结果对象
         PageInfo<BkProduct> pageInfo = new PageInfo<>(list);
@@ -94,7 +96,6 @@ public class BkProductServiceImpl implements BkProductService {
         //得到分页中的person条目对象
         List<BkProduct> responseList = pageInfo.getList();
         Long total = pageInfo.getTotal();
-        logger.info("-----------------"+String.valueOf(total));
         return Result.buildResult(responseList, Meta.buildMeta(total.intValue()));
     }
 }

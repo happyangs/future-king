@@ -1,6 +1,5 @@
 package com.ahuthj.controller;
 
-import com.ahuthj.common.model.Meta;
 import com.ahuthj.common.model.Result;
 import com.ahuthj.enums.ConfigTypeEnum;
 import com.ahuthj.model.BkConfig;
@@ -21,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +47,7 @@ public class IndexController {
         List<BkConfig> productTypeList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_TYPE.getCode());
         List<BkConfig> productThemeList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_THEME.getCode());
         ProductQueryVo productQuery = new ProductQueryVo();
-        productQuery.setPageNum(0);
+        productQuery.setPageNum(1);
         productQuery.setPageSize(15);
         Result<BkProduct> bkProductList = bkProductService.pageQuery(productQuery);
         logger.info(JsonUtil.obj2String(bkProductList));
@@ -69,7 +66,6 @@ public class IndexController {
         List<Integer> list = new ArrayList<>();list.add(productId);
         List<BkProductPicture> pictureList = bkProductPictureService.findPictureByProductId(list);
         List<BkProduct> productList = bkProductService.findByProductId(list);
-        logger.info("============"+JsonUtil.obj2String(pictureList));
         modelAndView.addObject("pictureList",pictureList);
         modelAndView.addObject("product",productList.get(0));
         return modelAndView;
