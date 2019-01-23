@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS bk_product_picture;
 CREATE TABLE `bk_product_picture` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `product_id` int(8) NOT NULL DEFAULT '0' COMMENT '商品编码',
-  `picture_type` int(8) NOT NULL DEFAULT '0' COMMENT '图片类型 0-其他 1-首页 2-尾页 3-展示页',
+  `picture_type` int(8) NOT NULL DEFAULT '0' COMMENT '图片类型 1-首页 2-内容',
   `picture_size` varchar(10) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '图片尺寸',
   `picture_path` varchar(300) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '图片链接',
   `remark` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '备注',

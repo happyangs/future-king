@@ -6,6 +6,7 @@ import com.ahuthj.model.request.BkConfigReq;
 import com.ahuthj.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -26,5 +27,15 @@ public class ConfigServiceImpl implements ConfigService {
         req.setConfigType(configType);
         List<BkConfig> bkConfigs = bkConfigMapper.queryConfig(req);
         return bkConfigs;
+    }
+
+    @Override
+    public BkConfig queryConfig(BkConfigReq bkConfigReq) {
+        BkConfig bkConfig = null;
+        List<BkConfig> list = bkConfigMapper.queryConfig(bkConfigReq);
+        if (!CollectionUtils.isEmpty(list)){
+            bkConfig = list.get(0);
+        }
+        return bkConfig;
     }
 }

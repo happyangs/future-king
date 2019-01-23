@@ -10,4 +10,6 @@ public interface ConfigService {
     List<BkConfig> queryConfigByCondition(BkConfigReq bkConfigReq);
 
     List<BkConfig> getBkConfig(String configType);
+
+    BkConfig queryConfig(BkConfigReq bkConfigReq);
 }

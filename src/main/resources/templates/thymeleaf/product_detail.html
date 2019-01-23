@@ -35,7 +35,7 @@
             <ul class="ulSmallPic" style="width:2646px;left:0px" rel="stop">
                 <li th:each="picture : ${pictureList}" >
                     <span  class="sPic"><img th:src="@{${picture.picturePath}}" width="135" height="100" /></span>
-                    <span  class="sTitle" th:text="${picture.pictureType}"></span>
+                    <span  class="sTitle" th:text="${picture.pictureTypeName}"></span>
                 </li>
             </ul>
         </div>

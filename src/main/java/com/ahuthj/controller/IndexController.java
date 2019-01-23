@@ -50,7 +50,6 @@ public class IndexController {
         productQuery.setPageNum(1);
         productQuery.setPageSize(15);
         Result<BkProduct> bkProductList = bkProductService.pageQuery(productQuery);
-        logger.info(JsonUtil.obj2String(bkProductList));
         modelAndView.addObject("bkProductList",bkProductList);
         modelAndView.addObject("productTypeList",productTypeList);
         modelAndView.addObject("productThemeList",productThemeList);
