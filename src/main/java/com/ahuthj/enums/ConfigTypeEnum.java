@@ -11,7 +11,8 @@ public enum ConfigTypeEnum {
     PRODUCT_TYPE("ProductType","作品类型"),
     PRODUCT_THEME("ProductTheme","作品主题"),
     PICTURE_TYPE("PictureType","图片类型"),
-    PRODUCT_SIZE("PictureSize","图片尺寸");
+    PRODUCT_SIZE("PictureSize","图片尺寸"),
+    TAO_BAO_URL("TaoBaoUrl","淘宝链接");
 
     @Getter
     private String code;

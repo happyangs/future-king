@@ -65,8 +65,10 @@ public class IndexController {
         List<Integer> list = new ArrayList<>();list.add(productId);
         List<BkProductPicture> pictureList = bkProductPictureService.findPictureByProductId(list);
         List<BkProduct> productList = bkProductService.findByProductId(list);
+        BkConfig config = configService.queryConfig(ConfigTypeEnum.TAO_BAO_URL.getCode());
         modelAndView.addObject("pictureList",pictureList);
         modelAndView.addObject("product",productList.get(0));
+        modelAndView.addObject("taobaoUrl",config.getZhName());
         return modelAndView;
     }
 

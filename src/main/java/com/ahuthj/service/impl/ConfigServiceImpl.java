@@ -30,9 +30,11 @@ public class ConfigServiceImpl implements ConfigService {
     }
 
     @Override
-    public BkConfig queryConfig(BkConfigReq bkConfigReq) {
+    public BkConfig queryConfig(String configType) {
         BkConfig bkConfig = null;
-        List<BkConfig> list = bkConfigMapper.queryConfig(bkConfigReq);
+        BkConfigReq req = new BkConfigReq();
+        req.setConfigType(configType);
+        List<BkConfig> list = bkConfigMapper.queryConfig(req);
         if (!CollectionUtils.isEmpty(list)){
             bkConfig = list.get(0);
         }

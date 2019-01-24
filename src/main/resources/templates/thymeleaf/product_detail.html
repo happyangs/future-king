@@ -27,7 +27,7 @@
 			</div>
                 <div class="detail-sj">售价:</div>
                 <div class="detail-price" th:text="'¥'+${product.price}"></div>
-                <button onclick="window.location.href = 'https://www.baidu.com/'" class="purchase_btns" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</button>
+                <a th:href = "${taobaoUrl}"><button class="purchase_btns" style="  font-weight: bold;float: left; width:116px; font-size:16px;box-sizing:border-box; ">淘宝下单</button></a>
         </li>
     </ul>
     <div class="dSmallPicBox">
@@ -48,4 +48,5 @@
 <script th:src="@{/js/common/jquery-1.4.2.min.js}"></script>
 <script th:src="@{/js/list.js}"></script>
 </body>
+
 </html>

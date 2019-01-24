@@ -11,5 +11,5 @@ public interface ConfigService {
 
     List<BkConfig> getBkConfig(String configType);
 
-    BkConfig queryConfig(BkConfigReq bkConfigReq);
+    BkConfig queryConfig(String configType);
 }
