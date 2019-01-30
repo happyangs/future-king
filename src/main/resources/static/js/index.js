@@ -15,7 +15,6 @@ jQuery(document).ready(function($) {
     function getHtmlNum(data,type) {
         if (type == 1){
             data.max_html_num = 20;
-            data.min_html_num = 10;
         }
         if (type == 2){
             data.max_html_num = 30;
@@ -62,12 +61,12 @@ jQuery(document).ready(function($) {
             contentType: "application/json;charset=utf-8",
             sync: true,
             success: function (data) {
-                $('.J_product-ul').empty();
+                // $('.J_product-ul').empty();
                 var html = '';
                 var info = data.info.data;
                 var totalCount = data.info.meta.count;
                 $.each(info, function (index, content) {
-                    html +=   '<a class="product-item J_product-item" href="detail/' + content.productId + '" title="查看详细内容" style="text-decoration:none" target="_blank">'
+                    html +=   '<li class="product-item"><a class="J_product-item" href="detail/' + content.productId + '" title="查看详细内容" style="text-decoration:none" target="_blank">'
                         + '<img src="' + content.showPath + '"/>'
                         + '<div class="product-desc">'
                         + '<span class="product-id clear">编号:'+content.productId+'</span>'
@@ -78,7 +77,7 @@ jQuery(document).ready(function($) {
                         + '<span>¥' + content.price + '</span>'
                         + '</div>'
                         + '</div>'
-                        + '</a>'
+                        + '</a></li>'
                 });
                 $('.J_product-ul').html(html);
                 pagination(totalCount,pageNum,pageSize);
@@ -164,9 +163,9 @@ jQuery(document).ready(function($) {
         var per_num = (data_obj.per_num!== undefined) ? parseInt(data_obj.per_num) : 15;//每页显示条数,默认为10条
         var current_page = (data_obj.current_page!== undefined) ? parseInt(data_obj.current_page) : 1;//当前页,默认为1
         var total_page = Math.ceil(total_item/per_num);//计算总页数,不足2页,不加载组件
-        // if(total_page < 2){
-        //     return;
-        // }
+        if(total_page < 2){
+            return;
+        }
         //在指定容器内加载分页数据
 
         $(obj_box).append('<div class="page_ctrl"></div>');

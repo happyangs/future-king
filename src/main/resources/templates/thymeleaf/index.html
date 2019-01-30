@@ -58,7 +58,7 @@
                   <ul class="J_html_num ul-ul">
                        <li class="first-condition" th:text="@{张数：}"></li>
                        <li class="codition active" th:value="0">全部</li>
-                       <li class="codition" th:value="1">10-20页</li>
+                       <li class="codition" th:value="1">0-20页</li>
                        <li class="codition" th:value="2">20-30页</li>
                        <li class="codition" th:value="3">30-40页</li>
                        <li class="codition" th:value="-1">其他</li>
@@ -82,20 +82,22 @@
                         <li th:each="config:${productThemeList}" class="codition" th:text="${config.zhName}" th:value="${config.code}"></li>
                     </ul>
                 </div>
-                <div class="J_product-list product-list m-content clearfix">
-                    <ul class="product-ul J_product-ul">
-                        <a class="product-item J_product-item" th:each="product : ${bkProductList.data}" th:href="@{'detail/'+${product.productId}}" style="text-decoration:none" th:title="查看详细内容" target="_blank">
-                            <img th:src="@{${product.showPath}}"/>
-                            <div class="product-desc">
-                                <span class="product-id clear" th:text="@{编号:}+${product.productId}"></span>
-                                <span class="product-htmlNum clear" th:text="@{张数:}+${product.htmlNum}"></span>
-                                <div class="Line"></div>
-                                <div class="product-title" th:text="${product.productName}"></div>
-                                <div class="product-price" style="display: block;">
-                                    <span th:text="'¥'+${product.price}"></span>
+                <div class="J_product-list product-list m-content content-wrap">
+                    <ul class="product-ul J_product-ul clearfix">
+                        <li class="product-item" th:each="product : ${bkProductList.data}">
+                            <a class="J_product-item"  th:href="@{'detail/'+${product.productId}}" style="text-decoration:none" th:title="查看详细内容" target="_blank">
+                                <img th:src="@{${product.showPath}}"/>
+                                <div class="product-desc">
+                                    <span class="product-id clear" th:text="@{编号:}+${product.productId}"></span>
+                                    <span class="product-htmlNum clear" th:text="@{张数:}+${product.htmlNum}"></span>
+                                    <div class="Line"></div>
+                                    <div class="product-title" th:text="${product.productName}"></div>
+                                    <div class="product-price" style="display: block;">
+                                        <span th:text="'¥'+${product.price}"></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
