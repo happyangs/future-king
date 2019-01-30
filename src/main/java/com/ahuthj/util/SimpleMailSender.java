@@ -1,6 +1,5 @@
 package com.ahuthj.util;
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.env.Environment;
@@ -12,7 +11,8 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import javax.mail.internet.MimeMessage;
+import javax.mail.MessagingException;
+import javax.mail.internet.*;
 import java.io.File;
 
 
