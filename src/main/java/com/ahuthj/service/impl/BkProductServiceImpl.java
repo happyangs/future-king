@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,13 @@ public class BkProductServiceImpl implements BkProductService {
         BkProductExample.Criteria criteria = bkProductExample.createCriteria();
         criteria.andProductIdIn(productIds);
         List<BkProduct> list = bkProductMapper.selectByExample(bkProductExample);
+        if (!CollectionUtils.isEmpty(list)){
+            List<BkConfig> productThemeList = configService.getBkConfig(ConfigTypeEnum.PRODUCT_THEME.getCode());
+            Map<Integer,String> themeMap = productThemeList.stream().collect(Collectors.toMap(BkConfig::getCode,BkConfig::getZhName));
+            list.forEach(bkProduct -> {
+                bkProduct.setProductTheme(themeMap.get(Integer.valueOf(bkProduct.getProductTheme())));
+            });
+        }
         return list;
     }
 
